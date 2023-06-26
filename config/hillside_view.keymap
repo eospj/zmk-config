@@ -7,28 +7,50 @@
 
 #include "helpers.h"
 
-// Left bottom row pinky 2nd column
+/* Defines */
+
+// Left Bottom row pinky 2nd column
 #ifndef LB5
 #define LB5 24
 #endif
 
-// Right bottom row pinky 2nd column
+// Right Bottom row pinky 2nd column
 #ifndef RB5
 #define RB5 35
 #endif
 
+// Layes. If you need to modify layers it's easier to refer to them via names, sich as SYM for symbol and NUM for numbrs.
+// Alias your layers with names in the section below
 #define DEF 0
 #define SYM 1
 #define NUM 2
 #define ADJ 3
 
+/* End of Defines */
 
+
+// Configration for Sticky Keys behavior
+// https://zmk.dev/docs/behaviors/sticky-key#configuration
 &sk {
   release-after-ms = <600>;
   quick-release;
 };
 
+// Q: What are those things starting with &? 
+// A: Keywords that start with & are "behaviors". Behaviors are the main way to configure your keymap. 
+//    The most common is called &kp which stands for key press. There several built-in bevaiors and also unlimitted number of ones you can create.
+// Q: What are available built-in bevaiors?
+// A: Here is a list of most common ones:
+//   &kp - key press
+//   &mo - momentary turn on the layer
+//   &to - toggle a layer
+//   &lt - layer tap; tap for a key pres and hold for a layer
+//   &mt - mod tap; hold for modifier, tap for a key press
+//   &sk - sticky key; sticky modifier
+
 / {
+  // Activate ADJ layer when both SYM and NUM layers are active
+  // https://zmk.dev/docs/features/conditional-layers
   conditional_layers {
     compatible = "zmk,conditional-layers";
     tri_layer {
@@ -37,25 +59,23 @@
     };
   };
 
+  // Combo setups
+  // https://zmk.dev/docs/features/combos
   combos {
     compatible = "zmk,combos";
+    // Caps Word that allows you type in caps until you hit sapce (or other defined characters)
+    // https://zmk.dev/docs/behaviors/caps-word
     caps {
       timeout-ms = <50>;
+      // Uses LB5 and RB5 which are the most left and most right keys on the 3rd row
       key-positions = <LB5 RB5>;
       bindings = <&caps_word>;
     };
   };
 
   behaviors {
-    mt_sk: mod_tap_sticky {
-      compatible = "zmk,behavior-hold-tap";
-      label = "MOD_TAP_STICKY";
-      #binding-cells = <2>;
-      flavor = "tap-preferred";
-      tapping-term-ms = <150>;
-      quick-tap-ms = <200>;
-      bindings = <&sk>, <&kp>;
-    };
+    // Hold tap behavior which will allow us to have a different key whether the key is tapped or held
+    // https://zmk.dev/docs/behaviors/hold-tap
     ht: hold_tap {
       compatible = "zmk,behavior-hold-tap";
       label = "HOLD_TAP";
@@ -77,12 +97,13 @@
       // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                      ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼────────────┤
              &kp ESC       &kp A          &kp S         &kp D         &kp F        &kp G                                                 &kp H         &kp J         &kp K         &kp L        &kp SEMI     &kp SQT    
       // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ╭─────────────╮     ╭─────────────╮ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼────────────┤
-           &sk LSHFT   &mt_sk LCTRL Z  &mt_sk LALT X    &kp C         &kp V        &kp B                                                 &kp N         &kp M        &kp COMMA  &mt_sk RALT DOT  &mt_sk RCTRL FSLH  &sk RSHFT  
+           &sk LSHFT    &mt LCTRL Z   &mt LALT X        &kp C         &kp V        &kp B                                                 &kp N         &kp M        &kp COMMA   &mt RALT DOT   &mt RCTRL FSLH  &sk RSHFT  
                                                                                                   &kp C_MUTE           &kp C_PP                                                                                         
       // ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ╰─────────────╯     ╰─────────────╯ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┴────────────╯
                                          &kp LGUI      &kp SPACE   &lt SYM BKSP  &sk LSHIFT                                           &sk RSHIFT     &lt NUM DEL   &kp RET      &kp RGUI
       //                             ╰─────────────┴─────────────┴─────────────┴─────────────╯                                      ╰─────────────┴─────────────┴─────────────┴─────────────╯
       >;
+      // Bindings for encoders, if you don't have encoders you can remove this line from all layers. If you leave it here it won't affect your keymap.
       sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
     };
     sym_layer {
