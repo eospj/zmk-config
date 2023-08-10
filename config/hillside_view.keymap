@@ -274,7 +274,7 @@ ZMK_BEHAVIOR(num_dance, tap_dance,
            &kp LALT         &kp B          &kp Z         &kp X         &kp C        &kp V                                               &kp N         &kp M        &kp COMMA     &kp DOT       &kp FSLH     &kp DOWN  
                                                                                                       ___                 ___                                                                                         
       // ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ╰─────────────╯     ╰─────────────╯ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┴────────────╯
-                                         &kp LALT     &kp SPACE     &kp LCTRL     &kp LSHIFT                                           &to DEF     &kp SPACE     &kp LEFT     &kp RIGHT
+                                         &kp LALT     &kp SPACE     &kp LCTRL     &kp LSHIFT                                           &to DEF        &kp LEFT     &kp ENTER     &kp RIGHT
       //                             ╰─────────────┴─────────────┴─────────────┴─────────────╯                                      ╰─────────────┴─────────────┴─────────────┴─────────────╯
       >;
 
