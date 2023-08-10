@@ -4,8 +4,6 @@ manifest:
       url-base: https://github.com/mike1808
     - name: urob
       url-base: https://github.com/urob
-    - name: zmk
-      url-base: https://github.com/zmkfirmware
   projects:
     - name: zmk
       remote: zmkfirmware
