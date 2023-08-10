@@ -115,17 +115,6 @@ ZMK_BEHAVIOR(num_dance, tap_dance,
 
 / {
 
-    behaviors {
-		num_word: behavior_num_word {
-		compatible = "zmk,behavior-caps-word";
-		label = "NUM_WORD";
-		#binding-cells = <0>;
-                layers = <NUM>;                                // insert location of numbers layer here
-		continue-list = <BACKSPACE DELETE DOT COMMA>;  // adjust as desired
-                ignore-numbers;                                // numbers don't deactivate the layer
-		};
-	};
-
   // Activate ADJ layer when both SYM and NUM layers are active
   // https://zmk.dev/docs/features/conditional-layers
   conditional_layers {
@@ -162,6 +151,18 @@ ZMK_BEHAVIOR(num_dance, tap_dance,
       flavor = "tap-preferred";
       bindings = <&kp>, <&kp>;
     };
+
+       num_word: behavior_num_word {
+        compatible = "zmk,behavior-caps-word";
+        label = "NUM_WORD";
+        #binding-cells = <0>;
+        layers = <NUM>;                                // insert location of numbers layer here
+        continue-list = <BACKSPACE DELETE DOT COMMA>;  // adjust as desired
+        ignore-numbers;                                // numbers don't deactivate the layer
+		  };
+  };
+
+
 
 
   keymap {
