@@ -106,10 +106,20 @@ ZMK_BEHAVIOR(num_dance, tap_dance,
     tapping-term-ms = <200>;
     bindings = <&num_word>, <&sl NUM>;  // reverse this for sticky-num on single tap
 )
-&num_word {  // num-word, requires PR #1451
-    layers = <NUM>;
-    continue-list = <BSPC DEL DOT COMMA PLUS MINUS STAR FSLH EQUAL>;
+
+\ {
+    behaviors {
+		        num_word: behavior_num_word {
+			    compatible = "zmk,behavior-caps-word";
+			    label = "NUM_WORD";
+		    	#binding-cells = <0>;
+                layers = <NUM>;                                // insert location of numbers layer here
+			    continue-list = <BACKSPACE DELETE DOT COMMA>;  // adjust as desired
+                ignore-numbers;                                // numbers don't deactivate the layer
+		};
+	};
 };
+
 
 
   /* Custom behaviors */
