@@ -93,16 +93,6 @@ ZMK_BEHAVIOR(smart_shft, mod_morph,
     /delete-property/ ignore-modifiers;
 };
 
-  /* Custom behaviors */
-
-  // misc aliases
-#define CANCEL      &kp K_CANCEL             // cancel caps-word, num-word
-
-
-
-/ {
-
-
 // tap: num-word | double-tap: sticky num-layer | hold: num-layer
 #define SMART_NUM &smart_num NUM 0
 ZMK_BEHAVIOR(smart_num, hold_tap,
@@ -115,6 +105,15 @@ ZMK_BEHAVIOR(num_dance, tap_dance,
     tapping-term-ms = <200>;
     bindings = <&num_word>, <&sl NUM>;  // reverse this for sticky-num on single tap
 )
+
+  /* Custom behaviors */
+
+  // misc aliases
+#define CANCEL      &kp K_CANCEL             // cancel caps-word, num-word
+
+
+
+/ {
 
     behaviors {
 		num_word: behavior_num_word {
