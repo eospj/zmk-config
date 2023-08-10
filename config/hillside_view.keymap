@@ -55,46 +55,6 @@
 //   &mt - mod tap; hold for modifier, tap for a key press
 //   &sk - sticky key; sticky modifier
 
-/ {
-  // Activate ADJ layer when both SYM and NUM layers are active
-  // https://zmk.dev/docs/features/conditional-layers
-  conditional_layers {
-    compatible = "zmk,conditional-layers";
-    tri_layer {
-      if-layers = <SYM NUM>;
-      then-layer = <ADJ>;
-    };
-  };
-
-  // Combo setups
-  // https://zmk.dev/docs/features/combos
-  combos {
-    compatible = "zmk,combos";
-    // Caps Word that allows you type in caps until you hit sapce (or other defined characters)
-    // https://zmk.dev/docs/behaviors/caps-word
-    caps {
-      timeout-ms = <50>;
-      // Uses LB5 and RB5 which are the most left and most right keys on the 3rd row
-      key-positions = <LB5 RB5>;
-      bindings = <&caps_word>;
-    };
-  };
-
-  behaviors {
-    // Hold tap behavior which will allow us to have a different key whether the key is tapped or held
-    // https://zmk.dev/docs/behaviors/hold-tap
-    ht: hold_tap {
-      compatible = "zmk,behavior-hold-tap";
-      label = "HOLD_TAP";
-      #binding-cells = <2>;
-      tapping_term_ms = <200>;
-      quick_tap_ms = <200>;
-      flavor = "tap-preferred";
-      bindings = <&kp>, <&kp>;
-    };
-  };
-
-
 
   /* Homerow mods */
 
@@ -154,6 +114,47 @@ ZMK_BEHAVIOR(num_dance, tap_dance,
 
   // misc aliases
 #define CANCEL      &kp K_CANCEL             // cancel caps-word, num-word
+
+
+
+/ {
+  // Activate ADJ layer when both SYM and NUM layers are active
+  // https://zmk.dev/docs/features/conditional-layers
+  conditional_layers {
+    compatible = "zmk,conditional-layers";
+    tri_layer {
+      if-layers = <SYM NUM>;
+      then-layer = <ADJ>;
+    };
+  };
+
+  // Combo setups
+  // https://zmk.dev/docs/features/combos
+  combos {
+    compatible = "zmk,combos";
+    // Caps Word that allows you type in caps until you hit sapce (or other defined characters)
+    // https://zmk.dev/docs/behaviors/caps-word
+    caps {
+      timeout-ms = <50>;
+      // Uses LB5 and RB5 which are the most left and most right keys on the 3rd row
+      key-positions = <LB5 RB5>;
+      bindings = <&caps_word>;
+    };
+  };
+
+  behaviors {
+    // Hold tap behavior which will allow us to have a different key whether the key is tapped or held
+    // https://zmk.dev/docs/behaviors/hold-tap
+    ht: hold_tap {
+      compatible = "zmk,behavior-hold-tap";
+      label = "HOLD_TAP";
+      #binding-cells = <2>;
+      tapping_term_ms = <200>;
+      quick_tap_ms = <200>;
+      flavor = "tap-preferred";
+      bindings = <&kp>, <&kp>;
+    };
+  };
 
 
   keymap {
