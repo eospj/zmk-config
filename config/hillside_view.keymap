@@ -11,15 +11,6 @@
 
 /* Defines */
 
-// Left Bottom row pinky 2nd column
-#ifndef LB5
-#define LB5 24
-#endif
-
-// Right Bottom row pinky 2nd column
-#ifndef RB5
-#define RB5 35
-#endif
 
 // Layes. If you need to modify layers it's easier to refer to them via names, sich as SYM for symbol and NUM for numbrs.
 // Alias your layers with names in the section below
