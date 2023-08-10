@@ -103,7 +103,7 @@
              ___            &kp Z         &kp X         &kp C         &kp V        &kp B                                                 &kp N         &kp M        &kp COMMA     &kp DOT       &kp FSLH     &kp RSHFT  
                                                                                                       ___                 ___                                                                                         
       // ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ╰─────────────╯     ╰─────────────╯ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┴────────────╯
-                                         &kp LGUI      &mo ENTER       ___           ___                                                  ___        &kp LEFT      &kp SPACE     &kp RIGHT
+                                         &kp LGUI      &kp ENTER       ___           ___                                                  ___        &kp LEFT      &kp SPACE     &kp RIGHT
       //                             ╰─────────────┴─────────────┴─────────────┴─────────────╯                                      ╰─────────────┴─────────────┴─────────────┴─────────────╯
       >;
       // Bindings for encoders, if you don't have encoders you can remove this line from all layers. If you leave it here it won't affect your keymap.
