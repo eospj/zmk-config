@@ -31,6 +31,20 @@
     quick-tap-ms = <QUICK_TAP_MS>;
 };
 
+\ {
+    behaviors {
+		    num_word: behavior_num_word {
+			compatible = "zmk,behavior-caps-word";
+			label = "NUM_WORD";
+			#binding-cells = <0>;
+                        layers = <NUM>;                                // insert location of numbers layer here
+			            continue-list = <BSPC DEL DOT COMMA PLUS MINUS STAR FSLH EQUAL>;  // adjust as desired
+                        ignore-numbers;                                // numbers don't deactivate the layer
+		};
+	};
+};
+
+
 // Layes. If you need to modify layers it's easier to refer to them via names, such as SYM for symbol and NUM for numbrs.
 // Alias your layers with names in the section below
 #define DEF 0
