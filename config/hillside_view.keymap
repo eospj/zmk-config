@@ -7,6 +7,7 @@
 
 #include "helpers.h"
 #include "../zmk-nodefree-config/helper.h"
+#include "../zmk-nodefree-config/keypos_def/keypos_46keys_hillside.h"
 
 /* Defines */
 
@@ -17,7 +18,7 @@
 
 // Right Bottom row pinky 2nd column
 #ifndef RB5
-#define RB5 37
+#define RB5 35
 #endif
 
 // Layes. If you need to modify layers it's easier to refer to them via names, sich as SYM for symbol and NUM for numbrs.
