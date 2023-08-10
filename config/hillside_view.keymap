@@ -32,13 +32,6 @@
 };
 
 
-&num_word {
-    layers = <NUM>;
-    continue-list = <BSPC DEL DOT COMMA PLUS MINUS STAR FSLH EQUAL>;
-    ignore-numbers;  // modifiers don't deactivate the layer
-
-};
-
 
 // Layes. If you need to modify layers it's easier to refer to them via names, such as SYM for symbol and NUM for numbrs.
 // Alias your layers with names in the section below
@@ -90,35 +83,6 @@ ZMK_BEHAVIOR(hmr, hold_tap,  // right-hand HRMs
 )
 
 
-    /* Caps-word, num-word */
-
-// tap: sticky-shift | shift + tap/ double-tap: caps-word | hold: shift
-ZMK_BEHAVIOR(smart_shft, mod_morph,
-    bindings = <&sk LSHFT>, <&caps_word>;
-    mods = <(MOD_LSFT)>;
-)
-&caps_word {  // mods deactivate caps-word, requires PR #1451
-    /delete-property/ ignore-modifiers;
-};
-
-// tap: num-word | double-tap: sticky num-layer | hold: num-layer
-#define SMART_NUM &smart_num NUM 0
-ZMK_BEHAVIOR(smart_num, hold_tap,
-    flavor = "balanced";
-    tapping-term-ms = <200>;
-    quick-tap-ms = <QUICK_TAP_MS>;
-    bindings = <&mo>, <&num_dance>;
-)
-ZMK_BEHAVIOR(num_dance, tap_dance,
-    tapping-term-ms = <200>;
-    bindings = <&num_word>, <&sl NUM>;  // reverse this for sticky-num on single tap
-)
-&num_word {  // num-word, requires PR #1451
-    layers = <NUM>;
-    continue-list = <BSPC DEL DOT COMMA PLUS MINUS STAR FSLH EQUAL>;
-};
-
-
   /* Custom behaviors */
 
   // misc aliases
@@ -164,6 +128,47 @@ ZMK_BEHAVIOR(num_dance, tap_dance,
       bindings = <&kp>, <&kp>;
     };
   };
+
+  behaviors {
+		num_word: behavior_num_word {
+		compatible = "zmk,behavior-caps-word";
+		label = "NUM_WORD";
+		#binding-cells = <0>;
+        layers = <NUM>;                                // insert location of numbers layer here
+		continue-list = <BSPC DEL DOT COMMA PLUS MINUS STAR FSLH EQUAL>;  // adjust as desired
+        ignore-numbers;                                // numbers don't deactivate the layer
+	};
+};
+
+  
+    /* Caps-word, num-word */
+
+// tap: sticky-shift | shift + tap/ double-tap: caps-word | hold: shift
+ZMK_BEHAVIOR(smart_shft, mod_morph,
+    bindings = <&sk LSHFT>, <&caps_word>;
+    mods = <(MOD_LSFT)>;
+)
+&caps_word {  // mods deactivate caps-word, requires PR #1451
+    /delete-property/ ignore-modifiers;
+};
+
+// tap: num-word | double-tap: sticky num-layer | hold: num-layer
+#define SMART_NUM &smart_num NUM 0
+ZMK_BEHAVIOR(smart_num, hold_tap,
+    flavor = "balanced";
+    tapping-term-ms = <200>;
+    quick-tap-ms = <QUICK_TAP_MS>;
+    bindings = <&mo>, <&num_dance>;
+)
+ZMK_BEHAVIOR(num_dance, tap_dance,
+    tapping-term-ms = <200>;
+    bindings = <&num_word>, <&sl NUM>;  // reverse this for sticky-num on single tap
+)
+&num_word {  // num-word, requires PR #1451
+    layers = <NUM>;
+    continue-list = <BSPC DEL DOT COMMA PLUS MINUS STAR FSLH EQUAL>;
+};
+
 
 
   keymap {
