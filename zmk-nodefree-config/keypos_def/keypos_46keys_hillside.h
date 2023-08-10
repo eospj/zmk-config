@@ -6,6 +6,14 @@
   │ 24  25  26  27  28  29  30╰────┬────╯31  32  33  34  35  36  37 │
   ╰───────────────╮ 38  39  40  41 │ 42  43  44  45 ╭───────────────╯
                   ╰────────────────┴────────────────╯
+
+  ╭────────────────────────╮               ╭────────────────────────╮
+  │  0   1   2   3   4   5 │               │  6   7   8   9  10  11 │
+  │ 12  13  14  15  16  17 ╰──╮         ╭──╯ 18  19  20  21  22  23 │
+  │ 24  25  26  27  28  29  36╰────┬────╯37  30  31  32  33  34  35 │
+  ╰───────────────╮ 38  39  40  41 │ 42  43  44  45 ╭───────────────╯
+                  ╰────────────────┴────────────────╯
+                  
  ╭─────────────────────────╮               ╭─────────────────────────╮
  │ LT5 LT4 LT3 LT2 LT1 LT0 │               │ RT0 RT1 RT2 RT3 RT4 RT5 │
  │ LM5 LM4 LM3 LM2 LM1 LM0 ╰──╮         ╭──╯ RM0 RM1 RM2 RM3 RM4 RM5 │
@@ -56,21 +64,21 @@
 #define LB4 25
 #define LB5 24
 
-#define RB0 32  // right-bottom row
-#define RB1 33
-#define RB2 34
-#define RB3 35
-#define RB4 36
-#define RB5 37
+#define RB0 30  // right-bottom row
+#define RB1 31
+#define RB2 32
+#define RB3 33
+#define RB4 34
+#define RB5 35
 
 #define LH0 41  // left thumb keys
 #define LH1 40
 #define LH2 39
 #define LH3 38
-#define LH4 30
+#define LH4 36
 
 #define RH0 42  // right thumb keys
 #define RH1 43
 #define RH2 44
 #define RH3 45
-#define RH4 31
+#define RH4 37
