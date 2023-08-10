@@ -1,13 +1,13 @@
 manifest:
   remotes:
-    - name: zmkfirmware
-      url-base: https://github.com/mike1808
+    - name: eos
+      url-base: https://github.com/eospj
     - name: urob
       url-base: https://github.com/urob
   projects:
     - name: zmk
-      remote: zmkfirmware
-      revision: mm/experiments
+      remote: eospj
+      revision: main
       import: app/west.yml
   self:
     path: config
