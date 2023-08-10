@@ -11,6 +11,7 @@
 
 // #include "combos.dtsi"
 #include "pts.dtsi"
+#incldue "num-word.yaml"
 
 /* Defines */
 
