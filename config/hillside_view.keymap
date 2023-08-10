@@ -82,17 +82,6 @@ ZMK_BEHAVIOR(hmr, hold_tap,  // right-hand HRMs
     hold-trigger-key-positions = <KEYS_L>;
 )
 
-
-  /* Custom behaviors */
-
-  // misc aliases
-#define CANCEL      &kp K_CANCEL             // cancel caps-word, num-word
-
-
-
-/ {
-
-
     /* Caps-word, num-word */
 
 // tap: sticky-shift | shift + tap/ double-tap: caps-word | hold: shift
@@ -103,6 +92,16 @@ ZMK_BEHAVIOR(smart_shft, mod_morph,
 &caps_word {  // mods deactivate caps-word, requires PR #1451
     /delete-property/ ignore-modifiers;
 };
+
+  /* Custom behaviors */
+
+  // misc aliases
+#define CANCEL      &kp K_CANCEL             // cancel caps-word, num-word
+
+
+
+/ {
+
 
 // tap: num-word | double-tap: sticky num-layer | hold: num-layer
 #define SMART_NUM &smart_num NUM 0
