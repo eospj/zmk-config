@@ -105,6 +105,11 @@ ZMK_BEHAVIOR(num_dance, tap_dance,
     tapping-term-ms = <200>;
     bindings = <&num_word>, <&sl NUM>;  // reverse this for sticky-num on single tap
 )
+&num_word {  // num-word, requires PR #1451
+    layers = <NUM>;
+    continue-list = <BSPC DEL DOT COMMA PLUS MINUS STAR FSLH EQUAL>;
+};
+
 
   /* Custom behaviors */
 
@@ -122,20 +127,6 @@ ZMK_BEHAVIOR(num_dance, tap_dance,
     tri_layer {
       if-layers = <SYM NUM>;
       then-layer = <ADJ>;
-    };
-  };
-
-  // Combo setups
-  // https://zmk.dev/docs/features/combos
-  combos {
-    compatible = "zmk,combos";
-    // Caps Word that allows you type in caps until you hit sapce (or other defined characters)
-    // https://zmk.dev/docs/behaviors/caps-word
-    caps {
-      timeout-ms = <50>;
-      // Uses LB5 and RB5 which are the most left and most right keys on the 3rd row
-      key-positions = <LB5 RB5>;
-      bindings = <&caps_word>;
     };
   };
 
