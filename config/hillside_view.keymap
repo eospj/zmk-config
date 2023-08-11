@@ -14,6 +14,9 @@
 
 /* Defines */
 
+#define XXX &none
+#define ___ &trans
+
 #define QUICK_TAP_MS 175
 
 &sk {  // sticky-key config
@@ -127,6 +130,39 @@ ZMK_BEHAVIOR(num_dance, tap_dance,
 
   /* Custom behaviors */
 
+ZMK_BEHAVIOR(min_under, tap_dance,
+    tapping-term-ms = <300>;
+    bindings = <&kp MINUS>, <&kp UNDERSCORE>;
+)
+ZMK_BEHAVIOR(equal_plus, tap_dance,
+    tapping-term-ms = <300>;
+    bindings = <&kp EQUAL>, <&kp PLUS>;
+)
+ZMK_BEHAVIOR(dquote_squote, tap_dance,
+    tapping-term-ms = <300>;
+    bindings = <&kp DQT>, <&kp SQT>;
+)
+ZMK_BEHAVIOR(left_brac, tap_dance,
+    tapping-term-ms = <300>;
+    bindings = <&kp LEFT_BRACKET>, <&kp LEFT_BRACE>;
+)
+ZMK_BEHAVIOR(right_brac, tap_dance,
+    tapping-term-ms = <300>;
+    bindings = <&kp RIGHT_BRACKET>, <&kp RIGHT_BRACE>;
+)
+ZMK_BEHAVIOR(less_bslash, tap_dance,
+    tapping-term-ms = <300>;
+    bindings = <&kp LESS_THAN>, <&kp BACKSLASH>;
+)
+ZMK_BEHAVIOR(more_fslash, tap_dance,
+    tapping-term-ms = <300>;
+    bindings = <&kp GREATER_THAN>, <&kp FSLH>;
+)
+ZMK_BEHAVIOR(grave_tilde, tap_dance,
+    tapping-term-ms = <300>;
+    bindings = <&kp GRAVE>, <&kp TILDE>;
+)
+
   // misc aliases
 #define CANCEL      &kp K_CANCEL             // cancel caps-word, num-word
 
@@ -177,28 +213,28 @@ ZMK_BEHAVIOR(num_dance, tap_dance,
              &kp LALT       &kp Z         &kp X         &kp C         &kp V        &kp B                                                 &kp N         &kp M        &kp COMMA     &kp DOT       &kp FSLH     &kp DOWN  
                                                                                                       ___                 ___                                                                                         
       // ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ╰─────────────╯     ╰─────────────╯ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┴────────────╯
-                                 	 &mo SYM      SMART_NUM     &kp ENTER    &smart_shft                                            &kp LEFT     &kp SPACE     &kp RIGHT     &mo NUM
+                                 	 &to NUM       &mo NUM      &kp ENTER    &smart_shft                                            &kp LEFT     &kp SPACE      &mo SYM      &ko RIGHT
       //                             ╰─────────────┴─────────────┴─────────────┴─────────────╯                                      ╰─────────────┴─────────────┴─────────────┴─────────────╯
       >;
 
       // Bindings for encoders, if you don't have encoders you can remove this line from all layers. If you leave it here it won't affect your keymap.
-      sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
+      sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
     };
     sym_layer {
       label = "SYMBOLS";
       bindings = <
       // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                      ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬────────────╮
-              ___          &kp N1        &kp N2       &kp N3          &kp N4       &kp N5                                                &kp N6       &kp N7       &kp N8        &kp N9          &kp N0         ___
+	  &grave_tilde      &kp N1       &kp N2       &kp N3          &kp N4       &kp N5                                                &kp N6       &kp N7       &kp N8        &kp N9          &kp N0         ___
       // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                      ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼────────────┤
               ___          &kp EXCL      &kp AT       &kp POUND      &kp DLLR     &kp PRCNT                                            &kp CARET     &kp AMPS      &kp ASTRK      &kp LPAR      &kp RPAR        ___
       // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ╭─────────────╮     ╭─────────────╮ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼────────────┤
-              ___          ___            ___          &kp UNDER     &kp MINUS       ___                                                &kp SQT       &kp DQT         ___           ___           ___           ___
+              ___        &less_bslash    &kp PIPE    &equal_plus    &min_under   &left_brac                                           &right_brac  &dquote_squote     ___          ___        &more_fslash      ___
                                                                                                        ___                ___                                                                                          
       // ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ╰─────────────╯     ╰─────────────╯ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┴────────────╯
                                            ___           ___           ___           ___                                                 ___          ___            ___           ___         
       //                             ╰─────────────┴─────────────┴─────────────┴─────────────╯                                      ╰─────────────┴─────────────┴─────────────┴─────────────╯
       >;
-      sensor-bindings = <&inc_dec_kp C_NEXT C_PREV &inc_dec_kp F18 F17>;
+      sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
     };
     num_layer {
       label = "NUMBERS";
@@ -214,7 +250,7 @@ ZMK_BEHAVIOR(num_dance, tap_dance,
                                            ___            ___           ___           ___                                                ___          ___            ___           ___         
       //                             ╰─────────────┴─────────────┴─────────────┴─────────────╯                                      ╰─────────────┴─────────────┴─────────────┴─────────────╯
       >;
-      sensor-bindings = <&inc_dec_kp F15 F14 &inc_dec_kp PG_UP PG_DN>;
+      sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
     };
     adj_layer {
       label = "ADJUST";
@@ -230,7 +266,7 @@ ZMK_BEHAVIOR(num_dance, tap_dance,
                                            ___           ___           ___           ___                                                  ___           ___           ___           ___           
       //                             ╰─────────────┴─────────────┴─────────────┴─────────────╯                                      ╰─────────────┴─────────────┴─────────────┴─────────────╯
       >;
-      sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+      sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
     };
     pts_layer {
       label = "PTS";
@@ -246,7 +282,7 @@ ZMK_BEHAVIOR(num_dance, tap_dance,
                                            ___           ___           ___           ___                                                &to DEF         ___           ___           ___           
       //                             ╰─────────────┴─────────────┴─────────────┴─────────────╯                                      ╰─────────────┴─────────────┴─────────────┴─────────────╯
       >;
-      sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+      sensor-bindings = <&inc_dec_kp RIGHT_BRACKET LEFT_BRACKET &inc_dec_kp PG_UP PG_DN>;
     };
     game_layer {
       label = "GAME";
