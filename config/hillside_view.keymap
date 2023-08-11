@@ -179,7 +179,7 @@ ZMK_BEHAVIOR(num_dance, tap_dance,
              &kp LALT       &kp Z         &kp X         &kp C         &kp V        &kp B                                                 &kp N         &kp M        &kp COMMA     &kp DOT       &kp FSLH     &kp DOWN  
                                                                                                       ___                 ___                                                                                         
       // ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ╰─────────────╯     ╰─────────────╯ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┴────────────╯
-                                 	SMART_NUM     &kp ENTER    &smart_shft     &mo SYM                                              &mo NUM       &kp LEFT      &kp SPACE     &kp RIGHT
+                                 	 &mo SYM      SMART_NUM     &kp ENTER    &smart_shft                                            &kp LEFT     &kp SPACE     &kp RIGHT     &mo NUM
       //                             ╰─────────────┴─────────────┴─────────────┴─────────────╯                                      ╰─────────────┴─────────────┴─────────────┴─────────────╯
       >;
 
@@ -262,7 +262,7 @@ ZMK_BEHAVIOR(num_dance, tap_dance,
              &kp LALT       &kp B          &kp Z         &kp X         &kp C        &kp V                                               &kp N         &kp M        &kp COMMA     &kp DOT       &kp FSLH     &kp DOWN  
                                                                                                       ___                 ___                                                                                         
       // ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ╰─────────────╯     ╰─────────────╯ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┴────────────╯
-                                         &kp LALT     &kp SPACE     &kp LCTRL     &kp LSHIFT                                           &to DEF        &kp LEFT     &kp ENTER     &kp RIGHT
+                                         &kp LSHFT    &kp LALT     &kp SPACE     &kp LCTRL                                              &kp LEFT     &kp ENTER     &kp RIGHT     &to DEF
       //                             ╰─────────────┴─────────────┴─────────────┴─────────────╯                                      ╰─────────────┴─────────────┴─────────────┴─────────────╯
       >;
       sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
