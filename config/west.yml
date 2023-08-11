@@ -4,6 +4,8 @@ manifest:
       url-base: https://github.com/eospj
     - name: urob
       url-base: https://github.com/urob
+    - name: AakashDabas
+      url-base: https://github.com/AakashDabas
   projects:
     - name: zmk
       remote: zmkfirmware
