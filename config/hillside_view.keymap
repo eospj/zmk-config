@@ -172,7 +172,8 @@ ZMK_CONDITIONAL_LAYER(SYM NUM, ADJ)  // SYM + NUM --> ADJ
       bindings = <&kp>, <&kp>;
     };
   };
-};
+
+/*
 
 ZMK_LAYER(base,
 
@@ -259,8 +260,9 @@ ZMK_LAYER(game,
     
 )
 
+*/
 
-/*
+
   keymap {
     compatible = "zmk,keymap";
     default_layer {
@@ -365,5 +367,3 @@ ZMK_LAYER(game,
     };
   };
 };
-
-*/
