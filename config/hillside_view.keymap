@@ -271,7 +271,7 @@ ZMK_BEHAVIOR(grave_tilde, tap_dance,
                                         &kp LCTRL     &kp LSHFT      &kp LALT     &kp ENTER                                                ___          ___           ___           ___           
       //                             ╰─────────────┴─────────────┴─────────────┴─────────────╯                                      ╰─────────────┴─────────────┴─────────────┴─────────────╯
       >;
-      sensor-bindings = <&inc_dec_kp RIGHT_BRACKET LEFT_BRACKET &inc_dec_kp C_VOL_UP C_VOL_DN>;
+      sensor-bindings = <&inc_dec_kp RC_VOL_DN C_VOL_UP &inc_dec_kp C_VOL_UP C_VOL_DN>;
     };
     game_layer {
       label = "GAME";
@@ -288,7 +288,7 @@ ZMK_BEHAVIOR(grave_tilde, tap_dance,
                                          &kp LSHFT    &kp LALT     &kp SPACE     &kp LCTRL                                              &kp LEFT     &kp ENTER     &kp RIGHT        XXX
       //                             ╰─────────────┴─────────────┴─────────────┴─────────────╯                                      ╰─────────────┴─────────────┴─────────────┴─────────────╯
       >;
-      sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+      sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
     };
   };
 };
