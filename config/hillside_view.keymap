@@ -187,7 +187,7 @@ ZMK_BEHAVIOR(grave_tilde, tap_dance,
   keymap {
     compatible = "zmk,keymap";
     default_layer {
-      label = "DEFAULT";
+      label = "BASE";
       bindings = <
 
       // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                      ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬────────────╮
