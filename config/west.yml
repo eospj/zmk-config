@@ -9,7 +9,7 @@ manifest:
   projects:
     - name: zmk
       remote: zmkfirmware
-      revision: bongocat
+      revision: animated_wigets
       import: app/west.yml
   self:
     path: config
