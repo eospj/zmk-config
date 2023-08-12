@@ -130,9 +130,9 @@ ZMK_BEHAVIOR(equal_plus, tap_dance,
     tapping-term-ms = <300>;
     bindings = <&kp EQUAL>, <&kp PLUS>;
 )
-ZMK_BEHAVIOR(dquote_squote, tap_dance,
+ZMK_BEHAVIOR(squote_dquote, tap_dance,
     tapping-term-ms = <300>;
-    bindings = <&kp DQT>, <&kp SQT>;
+    bindings = <&kp SQT>, <&kp DQT>;
 )
 ZMK_BEHAVIOR(left_brac, tap_dance,
     tapping-term-ms = <300>;
@@ -213,7 +213,7 @@ ZMK_BEHAVIOR(grave_tilde, tap_dance,
       // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                      ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼────────────┤
               ___          &kp EXCL      &kp AT       &kp POUND      &kp DLLR     &kp PRCNT                                            &kp CARET     &kp AMPS      &kp ASTRK      &kp LPAR      &kp RPAR        ___
       // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ╭─────────────╮     ╭─────────────╮ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼────────────┤
-              ___        &less_bslash    &kp PIPE    &equal_plus    &min_under   &left_brac                                           &right_brac  &dquote_squote     ___          ___        &more_fslash      ___
+              ___        &less_bslash    &kp PIPE    &equal_plus    &min_under   &left_brac                                           &right_brac  &squote_dquote     ___          ___        &more_fslash      ___
                                                                                                        ___                ___                                                                                          
       // ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ╰─────────────╯     ╰─────────────╯ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┴────────────╯
                                            ___           ___           ___           ___                                                 ___          ___            ___           ___         
@@ -229,7 +229,7 @@ ZMK_BEHAVIOR(grave_tilde, tap_dance,
       // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                      ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼────────────┤
                ___          &kp N1        &kp N2        &kp N3        &kp N4       &kp N5                                                &kp N6        &kp N7        &kp N8        &kp N9        &kp N0         ___
       // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ╭─────────────╮     ╭─────────────╮ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼────────────┤
-               ___       &less_bslash    &kp PIPE    &equal_plus    &min_under    &left_brac                                          &right_brac  &dquote_squote     ___           ___       &more_fslash      ___  
+               ___       &less_bslash    &kp PIPE    &equal_plus    &min_under    &left_brac                                          &right_brac  &squote_dquote     ___           ___       &more_fslash      ___  
                                                                                                       ___                ___                                                                                          
       // ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ╰─────────────╯     ╰─────────────╯ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┴────────────╯
                                            ___            ___           ___           ___                                                ___          ___            ___           ___         
