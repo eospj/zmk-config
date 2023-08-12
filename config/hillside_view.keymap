@@ -67,25 +67,22 @@
 #define KEYS_R RT0 RT1 RT2 RT3 RT4 RT5 RM0 RM1 RM2 RM3 RM4 RM5 RB0 RB1 RB2 RB3 RB4 RB5 // right hand
 #define THUMBS LH4 LH3 LH2 LH1 LH0 RH0 RH1 RH2 RH3 RH4                                     // thumbs
 
-ZMK_BEHAVIOR(hml, hold_tap,  // left-hand HRMs
-    flavor = "balanced";
-    tapping-term-ms = <280>;
-    quick-tap-ms = <125>;
-    global-quick-tap;
-    bindings = <&kp>, <&kp>;
-    hold-trigger-key-positions = <KEYS_R>;
-)
+#define MAKE_HRM(NAME, HOLD, TAP, TRIGGER_POS) \
+    ZMK_BEHAVIOR(NAME, hold_tap, \
+        flavor = "balanced"; \
+        tapping-term-ms = <280>; \
+        quick-tap-ms = <QUICK_TAP_MS>; \
+        global-quick-tap-ms = <150>; \
+        bindings = <HOLD>, <TAP>; \
+        hold-trigger-key-positions = <TRIGGER_POS>; \
+        
+    )
+MAKE_HRM(hml, &kp, &kp, KEYS_R)  // left-hand HRMs
+MAKE_HRM(hmr, &kp, &kp, KEYS_L)  // right-hand HRMs
 
-ZMK_BEHAVIOR(hmr, hold_tap,  // right-hand HRMs
-    flavor = "balanced";
-    tapping-term-ms = <280>;
-    quick-tap-ms = <125>;
-    global-quick-tap;
-    bindings = <&kp>, <&kp>;
-    hold-trigger-key-positions = <KEYS_L>;
-)
 
-    /* Caps-word, num-word */
+
+/* Caps-word, num-word */
 
 // tap: sticky-shift | shift + tap/ double-tap: caps-word | hold: shift
 ZMK_BEHAVIOR(smart_shft, mod_morph,
@@ -95,9 +92,6 @@ ZMK_BEHAVIOR(smart_shft, mod_morph,
 &caps_word {  // mods deactivate caps-word, requires PR #1451
     /delete-property/ ignore-modifiers;
 };
-
-
-/*
 
 // tap: num-word | double-tap: sticky num-layer | hold: num-layer
 #define SMART_NUM &smart_num NUM 0
@@ -111,26 +105,11 @@ ZMK_BEHAVIOR(num_dance, tap_dance,
     tapping-term-ms = <200>;
     bindings = <&num_word>, <&sl NUM>;  // reverse this for sticky-num on single tap
 )
-
-/ {
-  behaviors {
-       num_word: behavior_num_word {
-        compatible = "zmk,behavior-caps-word";
-        label = "NUM_WORD";
-        #binding-cells = <0>;
-        layers = <NUM>;                                // insert location of numbers layer here
-        continue-list = <BSPC DEL DOT COMMA PLUS MINUS STAR FSLH EQUAL>;  // adjust as desired
-        ignore-numbers;                                // numbers don't deactivate the layer
-		  };
-  };
-};
-
 &num_word {  // num-word, requires PR #1451
     layers = <NUM>;
     continue-list = <BSPC DEL DOT COMMA PLUS MINUS STAR FSLH EQUAL>;
 };
 
-*/
 
   /* Custom behaviors */
 
