@@ -155,9 +155,17 @@ ZMK_BEHAVIOR(grave_tilde, tap_dance,
   // misc aliases
 #define CANCEL      &kp K_CANCEL             // cancel caps-word, num-word
 
-ZMK_CONDITIONAL_LAYER(SYM NUM, ADJ)  // SYM + NUM --> ADJ
+// ZMK_CONDITIONAL_LAYER(SYM NUM, ADJ)  // SYM + NUM --> ADJ
 
 / {
+  
+  conditional_layers {
+    compatible = "zmk,conditional-layers";
+    tri_layer {
+      if-layers = <SYM NUM>;
+      then-layer = <ADJ>;
+    };
+  };
 
   behaviors {
     // Hold tap behavior which will allow us to have a different key whether the key is tapped or held
