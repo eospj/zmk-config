@@ -75,7 +75,7 @@
         global-quick-tap-ms = <125>; \
         bindings = <HOLD>, <TAP>; \
         hold-trigger-key-positions = <TRIGGER_POS>; \
-    //    hold-trigger-on-release; \
+        hold-trigger-on-release; \
     )
 MAKE_HRM(hml, &kp, &kp, KEYS_R)  // left-hand HRMs
 MAKE_HRM(hmr, &kp, &kp, KEYS_L)  // right-hand HRMs
