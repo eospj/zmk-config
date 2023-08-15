@@ -6,10 +6,12 @@ manifest:
       url-base: https://github.com/urob
     - name: AakashDabas
       url-base: https://github.com/AakashDabas
+    - name: split-encoder
+      url-base: https://github.com/petejohanson
   projects:
     - name: zmk
-      remote: zmkfirmware
-      revision: main
+      remote: split-encoder
+      revision: stephen/split-encoder
       import: app/west.yml
   self:
     path: config
