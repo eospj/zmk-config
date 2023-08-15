@@ -4,14 +4,10 @@ manifest:
       url-base: https://github.com/eospj
     - name: urob
       url-base: https://github.com/urob
-    - name: AakashDabas
-      url-base: https://github.com/AakashDabas
-    - name: split-encoder
-      url-base: https://github.com/petejohanson
   projects:
     - name: zmk
-      remote: split-encoder
-      revision: stephen/split-encoder
+      remote: zmkfirmware
+      revision: main
       import: app/west.yml
   self:
     path: config
