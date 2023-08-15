@@ -6,47 +6,35 @@
 #include <dt-bindings/zmk/outputs.h>
 
 #include "helpers.h"
-#include "../zmk-nodefree-config/helper.h"
-#include "../zmk-nodefree-config/keypos_def/keypos_46keys_hillside.h"
-
-// #include "combos.dtsi"
-#include "pts.dtsi"
 
 /* Defines */
 
-#define XXX &none
-#define ___ &trans
+// Left Bottom row pinky 2nd column
+#ifndef LB5
+#define LB5 24
+#endif
 
-#define QUICK_TAP_MS 175
+// Right Bottom row pinky 2nd column
+#ifndef RB5
+#define RB5 35
+#endif
 
-&sk {  // sticky-key config
-    release-after-ms = <900>;  // release after 0.6s
-    quick-release;             // no double capitalization when rolling keys
-};
-
-&sl {  // sticky-layer config
-    ignore-modifiers;          // allow chording sticky mods & layers
-};
-
-&lt {  // layer-tap config
-    flavor = "balanced";
-    tapping-term-ms = <200>;
-    quick-tap-ms = <QUICK_TAP_MS>;
-};
-
-
-
-// Layes. If you need to modify layers it's easier to refer to them via names, such as SYM for symbol and NUM for numbrs.
+// Layes. If you need to modify layers it's easier to refer to them via names, sich as SYM for symbol and NUM for numbrs.
 // Alias your layers with names in the section below
 #define DEF 0
 #define SYM 1
 #define NUM 2
 #define ADJ 3
-#define PTS 4
-#define GAME 5
 
 /* End of Defines */
 
+
+// Configration for Sticky Keys behavior
+// https://zmk.dev/docs/behaviors/sticky-key#configuration
+&sk {
+  release-after-ms = <600>;
+  quick-release;
+};
 
 // Q: What are those things starting with &? 
 // A: Keywords that start with & are "behaviors". Behaviors are the main way to configure your keymap. 
@@ -60,109 +48,28 @@
 //   &mt - mod tap; hold for modifier, tap for a key press
 //   &sk - sticky key; sticky modifier
 
-
-  /* Homerow mods */
-
-#define KEYS_L LT0 LT1 LT2 LT3 LT4 LT5 LM0 LM1 LM2 LM3 LM4 LM5 LB0 LB1 LB2 LB3 LB4 LB5 // left hand
-#define KEYS_R RT0 RT1 RT2 RT3 RT4 RT5 RM0 RM1 RM2 RM3 RM4 RM5 RB0 RB1 RB2 RB3 RB4 RB5 // right hand
-#define THUMBS LH4 LH3 LH2 LH1 LH0 RH0 RH1 RH2 RH3 RH4                                     // thumbs
-
-#define MAKE_HRM(NAME, HOLD, TAP, TRIGGER_POS) \
-    ZMK_BEHAVIOR(NAME, hold_tap, \
-        flavor = "balanced"; \
-        tapping-term-ms = <280>; \
-        quick-tap-ms = <QUICK_TAP_MS>; \
-        global-quick-tap-ms = <130>; \
-        bindings = <HOLD>, <TAP>; \
-        hold-trigger-key-positions = <TRIGGER_POS>; \
-        hold-trigger-on-release; \
-    )
-MAKE_HRM(hml, &kp, &kp, KEYS_R THUMBS)  // left-hand HRMs
-MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
-
-
-/* Caps-word, num-word */
-
-// tap: sticky-shift | shift + tap/ double-tap: caps-word | hold: shift
-ZMK_BEHAVIOR(smart_shft, mod_morph,
-    bindings = <&sk LSHFT>, <&caps_word>;
-    mods = <(MOD_LSFT)>;
-)
-&caps_word {  // mods deactivate caps-word, requires PR #1451
-    /delete-property/ ignore-modifiers;
-};
-
-// tap: num-word | double-tap: sticky num-layer | hold: num-layer
-#define SMART_NUM &smart_num NUM 0
-ZMK_BEHAVIOR(smart_num, hold_tap,
-    flavor = "balanced";
-    tapping-term-ms = <200>;
-    quick-tap-ms = <QUICK_TAP_MS>;
-    bindings = <&mo>, <&num_dance>;
-)
-ZMK_BEHAVIOR(num_dance, tap_dance,
-    tapping-term-ms = <200>;
-    bindings = <&num_word>, <&sl NUM>;  // reverse this for sticky-num on single tap
-)
-&num_word {  // num-word, requires PR #1451
-    layers = <NUM>;
-    continue-list = <BSPC DEL DOT COMMA PLUS MINUS STAR FSLH EQUAL>;
-};
-
-
-  /* Custom behaviors */
-
-ZMK_BEHAVIOR(win_sleep, macro,
-    wait-ms = <500>;
-    tap-ms = <50>;
-    bindings = <&kp LG(X) &kp U &kp S>;
-)
-
-ZMK_BEHAVIOR(min_under, tap_dance,
-    tapping-term-ms = <300>;
-    bindings = <&kp MINUS>, <&kp UNDERSCORE>;
-)
-ZMK_BEHAVIOR(equal_plus, tap_dance,
-    tapping-term-ms = <300>;
-    bindings = <&kp EQUAL>, <&kp PLUS>;
-)
-ZMK_BEHAVIOR(squote_dquote, tap_dance,
-    tapping-term-ms = <300>;
-    bindings = <&kp SQT>, <&kp DQT>;
-)
-ZMK_BEHAVIOR(left_brac, tap_dance,
-    tapping-term-ms = <300>;
-    bindings = <&kp LEFT_BRACKET>, <&kp LEFT_BRACE>;
-)
-ZMK_BEHAVIOR(right_brac, tap_dance,
-    tapping-term-ms = <300>;
-    bindings = <&kp RIGHT_BRACKET>, <&kp RIGHT_BRACE>;
-)
-ZMK_BEHAVIOR(less_bslash, tap_dance,
-    tapping-term-ms = <300>;
-    bindings = <&kp LESS_THAN>, <&kp BACKSLASH>;
-)
-ZMK_BEHAVIOR(more_fslash, tap_dance,
-    tapping-term-ms = <300>;
-    bindings = <&kp GREATER_THAN>, <&kp FSLH>;
-)
-ZMK_BEHAVIOR(grave_tilde, tap_dance,
-    tapping-term-ms = <300>;
-    bindings = <&kp GRAVE>, <&kp TILDE>;
-)
-
-  // misc aliases
-#define CANCEL      &kp K_CANCEL             // cancel caps-word, num-word
-
-// ZMK_CONDITIONAL_LAYER(SYM NUM, ADJ)  // SYM + NUM --> ADJ
-
 / {
-  
+  // Activate ADJ layer when both SYM and NUM layers are active
+  // https://zmk.dev/docs/features/conditional-layers
   conditional_layers {
     compatible = "zmk,conditional-layers";
     tri_layer {
       if-layers = <SYM NUM>;
       then-layer = <ADJ>;
+    };
+  };
+
+  // Combo setups
+  // https://zmk.dev/docs/features/combos
+  combos {
+    compatible = "zmk,combos";
+    // Caps Word that allows you type in caps until you hit sapce (or other defined characters)
+    // https://zmk.dev/docs/behaviors/caps-word
+    caps {
+      timeout-ms = <50>;
+      // Uses LB5 and RB5 which are the most left and most right keys on the 3rd row
+      key-positions = <LB5 RB5>;
+      bindings = <&caps_word>;
     };
   };
 
@@ -183,104 +90,69 @@ ZMK_BEHAVIOR(grave_tilde, tap_dance,
   keymap {
     compatible = "zmk,keymap";
     default_layer {
-      label = "BASE";
+      label = "DEFAULT";
       bindings = <
-
       // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                      ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬────────────╮
-             &kp ESC        &kp Q         &kp W         &kp E         &kp R        &kp T                                                 &kp Y         &kp U         &kp I         &kp O        &kp P        &kp DEL    
+             &kp TAB       &kp Q          &kp W         &kp E         &kp R        &kp T                                                 &kp Y         &kp U         &kp I         &kp O        &kp P        &kp PIPE    
       // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                      ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼────────────┤
-             &kp TAB     &hml LSHFT A  &hml LALT S   &hml LCTRL D  &hml LGUI F    &kp G                                                 &kp H       &hmr RGUI J   &hmr RCTRL K  &hmr RALT L &hmr RSHFT SEMI  &kp BSPC    
+             &kp ESC       &kp A          &kp S         &kp D         &kp F        &kp G                                                 &kp H         &kp J         &kp K         &kp L        &kp SEMI     &kp SQT    
       // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ╭─────────────╮     ╭─────────────╮ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼────────────┤
-              &kp UP        &kp Z         &kp X         &kp C         &kp V        &kp B                                                 &kp N         &kp M        &kp COMMA     &kp DOT       &kp FSLH     &kp DOWN  
-                                                                                                      ___                 ___                                                                                         
+           &sk LSHFT    &mt LCTRL Z   &mt LALT X        &kp C         &kp V        &kp B                                                 &kp N         &kp M        &kp COMMA   &mt RALT DOT   &mt RCTRL FSLH  &sk RSHFT  
+                                                                                                  &kp C_MUTE           &kp C_PP                                                                                         
       // ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ╰─────────────╯     ╰─────────────╯ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┴────────────╯
-                                	&kp LCTRL      SMART_NUM     &kp ENTER    &smart_shft                                            &kp LEFT     &kp SPACE      &mo SYM      &kp RIGHT
+                                         &kp LGUI      &kp SPACE   &lt SYM BKSP  &sk LSHIFT                                           &sk RSHIFT     &lt NUM DEL   &kp RET      &kp RGUI
       //                             ╰─────────────┴─────────────┴─────────────┴─────────────╯                                      ╰─────────────┴─────────────┴─────────────┴─────────────╯
       >;
-
       // Bindings for encoders, if you don't have encoders you can remove this line from all layers. If you leave it here it won't affect your keymap.
-      sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp UP DOWN>;
+      sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
     };
     sym_layer {
       label = "SYMBOLS";
       bindings = <
       // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                      ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬────────────╮
-	  &grave_tilde      &kp N1       &kp N2       &kp N3          &kp N4       &kp N5                                                &kp N6       &kp N7       &kp N8        &kp N9          &kp N0         ___
+              ___          &kp EXCL      &kp AT        &kp HASH      &kp DLLR    &kp PRCNT                                             &kp CARET      &kp AMPS   &kp KP_MULTIPLY &kp LPAR       &kp RPAR     &kp BSPC
       // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                      ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼────────────┤
-              ___          &kp EXCL      &kp AT       &kp POUND      &kp DLLR     &kp PRCNT                                            &kp CARET     &kp AMPS      &kp ASTRK      &kp LPAR      &kp RPAR        ___
+              ___          ___            ___            ___           ___          ___                                                &kp MINUS      &kp EQUAL     &kp LBKT     &kp RBKT       &kp BSLH     &kp GRAVE
       // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ╭─────────────╮     ╭─────────────╮ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼────────────┤
-              ___        &less_bslash    &kp PIPE    &equal_plus    &min_under   &left_brac                                           &right_brac  &squote_dquote     ___          ___        &more_fslash      ___
-                                                                                                       ___                ___                                                                                          
+              ___          ___            ___            ___           ___          ___                                                &kp UNDER      &kp PLUS      &kp LBRC     &kp RBRC       &kp PIPE     &kp TILDE
+                                                                                                     ___                ___                                                                                         
       // ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ╰─────────────╯     ╰─────────────╯ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┴────────────╯
                                            ___           ___           ___           ___                                                 ___          ___            ___           ___         
       //                             ╰─────────────┴─────────────┴─────────────┴─────────────╯                                      ╰─────────────┴─────────────┴─────────────┴─────────────╯
       >;
-      sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp UP DOWN>;
+      sensor-bindings = <&inc_dec_kp C_NEXT C_PREV &inc_dec_kp F18 F17>;
     };
     num_layer {
       label = "NUMBERS";
       bindings = <
       // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                      ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬────────────╮
-             &kp ESC     &ht F1 EXCL    &ht F2 AT    &ht F3 POUND  &ht F4 DLLR  &ht F5 PRCNT                                          &ht F6 CARET  &ht F7 AMPS  &ht F8 ASTRK   &ht F9 LPAR   &ht F10 RPAR    &to DEF
+            &kp TAB        &ht F1 N1     &ht F2 N2     &ht F3 N3    &ht F4 N4     &ht F5 N5                                           &ht F6 N6       &ht F7 N7   &ht F8 N8       &ht F9 N9    &ht F10 N0       ___
       // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                      ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼────────────┤
-               ___          &kp N1        &kp N2        &kp N3        &kp N4       &kp N5                                                &kp N6        &kp N7        &kp N8        &kp N9        &kp N0         ___
+               ___          ___            ___            ___           ___          ___                                               &kp LEFT       &kp DOWN    &kp UP          &kp RIGHT       ___            ___
       // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ╭─────────────╮     ╭─────────────╮ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼────────────┤
-               ___       &less_bslash    &kp PIPE    &equal_plus    &min_under    &left_brac                                          &right_brac  &squote_dquote     ___           ___       &more_fslash      ___  
+               ___          ___            ___            ___           ___          ___                                              &kp C_PREV      &kp C_PP     &kp C_NEXT    &kp C_VOL_UP    &kp C_MUTE  &kp C_VOL_DN  
                                                                                                       ___                ___                                                                                          
       // ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ╰─────────────╯     ╰─────────────╯ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┴────────────╯
                                            ___            ___           ___           ___                                                ___          ___            ___           ___         
       //                             ╰─────────────┴─────────────┴─────────────┴─────────────╯                                      ╰─────────────┴─────────────┴─────────────┴─────────────╯
       >;
-      sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp UP DOWN>;
+      sensor-bindings = <&inc_dec_kp F15 F14 &inc_dec_kp PG_UP PG_DN>;
     };
     adj_layer {
       label = "ADJUST";
       bindings = <
       // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                      ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬────────────╮
-           &bt BT_CLR  &bt BT_SEL 0    &bt BT_SEL 1 &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                                             CANCEL         ___           ___           ___           ___        &to DEF
+           &bootloader &rgb_ug RGB_TOG &rgb_ug RGB_HUI &rgb_ug RGB_SAI &rgb_ug RGB_BRI &rgb_ug RGB_SPI                               &out OUT_TOG       ___           ___           ___          ___        &bootloader
       // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                      ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼────────────┤
-	   &win_sleep        ___           ___      &kp LC(MINUS) &kp LC(EQUAL)      ___                                                  ___      &kp LA(LSHFT)  &kp LC(CAPS)  &kp LA(CAPS)      ___           ___
+           &sys_reset  &rgb_ug RGB_EFF &rgb_ug RGB_HUD &rgb_ug RGB_SAD &rgb_ug RGB_BRD &rgb_ug RGB_SPD                                     ___          ___           ___           ___          ___         &sys_reset
       // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ╭─────────────╮     ╭─────────────╮ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼────────────┤
-             &to PTS         ___           ___           ___           ___           ___                                           &ext_power EP_TOG    ___           ___           ___           ___        &to GAME
-                                                                                                      ___                ___                                                                                    
+           &bt BT_CLR  &bt BT_SEL 0    &bt BT_SEL 1 &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                                               ___          ___           ___           ___          ___          ___
+                                                                                                     ___                ___                                                                                    
       // ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ╰─────────────╯     ╰─────────────╯ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┴────────────╯
-                                           ___           ___           ___           ___                                                  ___           ___           ___           ___           
+                                   &ext_power EP_TOG     ___           ___           ___                                                   ___          ___           ___           ___           
       //                             ╰─────────────┴─────────────┴─────────────┴─────────────╯                                      ╰─────────────┴─────────────┴─────────────┴─────────────╯
       >;
-      sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
-    };
-    pts_layer {
-      label = "PTS";
-      bindings = <
-      // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                      ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬────────────╮
-            &kp LC(S)     &dup_merge   &transf_warp   &move_full     &kp LC(C)    &kp LC(V)                                            &kp LC(K)        ___           ___           ___           ___         &to DEF
-      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                      ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼────────────┤
-	  &kp LC(LA(Q)) &kp new_layer     &kp L        &kp Z       &brush_eras      &kp G                                                  ___          ___           ___           ___           ___          ___
-      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ╭─────────────╮     ╭─────────────╮ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼────────────┤
-          &kp LC(LA(G))  &desel_del       &kp M      &kp LC(LA(Z))   &kp LC(Z)       &kp X                                                 ___          ___           ___           ___           ___          ___
-                                                                                                      ___                ___                                                                                   
-      // ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ╰─────────────╯     ╰─────────────╯ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┴────────────╯
-                                        &kp LCTRL     &kp LSHFT      &kp LALT     &kp ENTER                                                ___          ___           ___           ___           
-      //                             ╰─────────────┴─────────────┴─────────────┴─────────────╯                                      ╰─────────────┴─────────────┴─────────────┴─────────────╯
-      >;
-      sensor-bindings = <&inc_dec_kp RIGHT_BRACKET LEFT_BRACKET &inc_dec_kp C_VOL_UP C_VOL_DN>;
-    };
-    game_layer {
-      label = "GAME";
-      bindings = <
-
-      // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                      ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬────────────╮
-             &kp ESC        &kp T         &kp Q         &kp W         &kp E         &kp R                                                &kp Y         &kp U         &kp I         &kp O        &kp P        &to DEF    
-      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                      ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼────────────┤
-             &kp TAB        &kp G         &kp A         &kp S         &kp D         &kp F                                                &kp H         &kp J         &kp K         &kp L        &kp SEMI     &kp BSPC    
-      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ╭─────────────╮     ╭─────────────╮ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼────────────┤
-             &kp LALT       &kp B          &kp Z         &kp X        &kp C         &kp V                                                &kp N         &kp M        &kp COMMA     &kp DOT       &kp FSLH     &kp DOWN  
-                                                                                                      ___                 ___                                                                                         
-      // ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ╰─────────────╯     ╰─────────────╯ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┴────────────╯
-                                         &kp LSHFT    &kp LALT     &kp SPACE     &kp LCTRL                                              &kp LEFT     &kp ENTER     &kp RIGHT        XXX
-      //                             ╰─────────────┴─────────────┴─────────────┴─────────────╯                                      ╰─────────────┴─────────────┴─────────────┴─────────────╯
-      >;
-      sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp UP DOWN>;
+      sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
     };
   };
 };
