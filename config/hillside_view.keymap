@@ -69,7 +69,7 @@
 
 #define MAKE_HRM(NAME, HOLD, TAP, TRIGGER_POS) \
     ZMK_BEHAVIOR(NAME, hold_tap, \
-        flavor = "balanced"; \
+        flavor = "hold-preferred"; \
         tapping-term-ms = <280>; \
         quick-tap-ms = <QUICK_TAP_MS>; \
         global-quick-tap-ms = <130>; \
@@ -194,7 +194,7 @@ ZMK_BEHAVIOR(grave_tilde, tap_dance,
               &kp UP        &kp Z         &kp X         &kp C         &kp V        &kp B                                                 &kp N         &kp M        &kp COMMA     &kp DOT       &kp FSLH     &kp DOWN  
                                                                                                       ___                 ___                                                                                         
       // ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ╰─────────────╯     ╰─────────────╯ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┴────────────╯
-                                    &smart_shft     SMART_NUM     &kp ENTER    &ht LCTRL MINUS                                          &kp LEFT     &kp SPACE      &mo SYM      &kp RIGHT
+                                        &kp LCTRL     &mo SYM      &kp ENTER     &smart_shft                                            &kp LEFT     &kp SPACE     SMART_NUM     &kp RIGHT
       //                             ╰─────────────┴─────────────┴─────────────┴─────────────╯                                      ╰─────────────┴─────────────┴─────────────┴─────────────╯
       >;
 
@@ -205,9 +205,9 @@ ZMK_BEHAVIOR(grave_tilde, tap_dance,
       label = "SYMBOLS";
       bindings = <
       // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                      ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬────────────╮
-	  &grave_tilde      &kp N1       &kp N2       &kp N3          &kp N4       &kp N5                                                &kp N6       &kp N7       &kp N8        &kp N9          &kp N0         ___
+	  &grave_tilde     &kp EXCL       &kp AT      &kp POUND      &kp DLLR     &kp PRCNT                                            &kp CARET      &kp AMPS     &kp ASTRK      &kp LPAR      &kp RPAR        ___
       // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                      ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼────────────┤
-              ___          &kp EXCL      &kp AT       &kp POUND      &kp DLLR     &kp PRCNT                                            &kp CARET     &kp AMPS      &kp ASTRK      &kp LPAR      &kp RPAR        ___
+              ___          &kp N1         &kp N2        &kp N3       &kp N4        &kp N5                                               &kp N6        &kp N7         &kp N8        &kp N9        &kp N0         ___
       // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ╭─────────────╮     ╭─────────────╮ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼────────────┤
               ___        &less_bslash    &kp PIPE    &equal_plus    &min_under   &left_brac                                           &right_brac  &squote_dquote     ___          ___        &more_fslash      ___
                                                                                                        ___                ___                                                                                          
