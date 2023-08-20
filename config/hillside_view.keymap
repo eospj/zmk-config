@@ -200,7 +200,7 @@ ZMK_BEHAVIOR(grave_tilde, tap_dance,
       >;
 
       // Bindings for encoders, if you don't have encoders you can remove this line from all layers. If you leave it here it won't affect your keymap.
-      sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
+      sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp U_WH_U U_WH_D>;
     };
     sym_layer {
       label = "SYMBOLS";
@@ -216,7 +216,7 @@ ZMK_BEHAVIOR(grave_tilde, tap_dance,
                                            ___           ___           ___           ___                                                 ___          ___            ___           ___         
       //                             ╰─────────────┴─────────────┴─────────────┴─────────────╯                                      ╰─────────────┴─────────────┴─────────────┴─────────────╯
       >;
-      sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
+      sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp U_WH_U U_WH_D>;
     };
     num_layer {
       label = "NUMBERS";
@@ -232,7 +232,7 @@ ZMK_BEHAVIOR(grave_tilde, tap_dance,
                                            ___            ___           ___           ___                                                ___          ___            ___           ___         
       //                             ╰─────────────┴─────────────┴─────────────┴─────────────╯                                      ╰─────────────┴─────────────┴─────────────┴─────────────╯
       >;
-      sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
+      sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp U_WH_U U_WH_D>;
     };
     adj_layer {
       label = "ADJUST";
@@ -248,7 +248,7 @@ ZMK_BEHAVIOR(grave_tilde, tap_dance,
                                            ___           ___           ___           ___                                                  ___           ___           ___           ___           
       //                             ╰─────────────┴─────────────┴─────────────┴─────────────╯                                      ╰─────────────┴─────────────┴─────────────┴─────────────╯
       >;
-      sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
+      sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp U_WH_U U_WH_D>;
     };
     pts_layer {
       label = "PTS";
@@ -281,7 +281,7 @@ ZMK_BEHAVIOR(grave_tilde, tap_dance,
                                          &kp LSHFT    &kp LALT     &kp SPACE     &kp LCTRL                                              &kp LEFT     &kp ENTER     &kp RIGHT        XXX
       //                             ╰─────────────┴─────────────┴─────────────┴─────────────╯                                      ╰─────────────┴─────────────┴─────────────┴─────────────╯
       >;
-      sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
+      sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp U_WH_U U_WH_D>;
     };
   };
 };
