@@ -19,7 +19,6 @@
  H : Hand
  P : Palm
 */
-#include "helpers.h"
 #include "../zmk-nodefree-config/helper.h"
 #include "../zmk-nodefree-config/keypos_def/keypos_46keys_hillside.h"
 
