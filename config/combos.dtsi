@@ -19,7 +19,6 @@
  H : Hand
  P : Palm
 */
-#include "../zmk-nodefree-config/keypos_def/keypos_46keys_hillside.h"
 
 #undef COMBO_HOOK
 #define COMBO_HOOK global-quick-tap-ms = <150>;
