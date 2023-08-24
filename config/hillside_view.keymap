@@ -9,7 +9,7 @@
 #include "../zmk-nodefree-config/helper.h"
 #include "../zmk-nodefree-config/keypos_def/keypos_46keys_hillside.h"
 
-// #include "combos.dtsi"
+#include "combos.dtsi"
 #include "pts.dtsi"
 #include "mouse.dtsi"
 
