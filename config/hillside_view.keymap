@@ -349,7 +349,7 @@ ZMK_BEHAVIOR(grave_tilde, tap_dance,
                                          &kp LSHFT    &kp LALT     &kp SPACE     &kp LCTRL                                              &kp LEFT     &kp ENTER     &kp RIGHT        XXX
       //                             ╰─────────────┴─────────────┴─────────────┴─────────────╯                                      ╰─────────────┴─────────────┴─────────────┴─────────────╯
       >;
-      sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
+      sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp C_VOL_UP C_VOL_DN>;
     };
   };
 };
