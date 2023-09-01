@@ -220,6 +220,12 @@ ZMK_BEHAVIOR(grave_tilde, tap_dance,
     bindings = <&kp GRAVE>, <&kp TILDE>;
 )
 
+// Alt+Tab swapper, requires PR #1366
+ZMK_BEHAVIOR(swapper, tri_state,
+    bindings = <&kt LALT>, <&kp TAB>, <&kt LALT>;
+    ignored-key-positions = <LT2>;
+)
+
   // misc aliases
 #define CANCEL      &kp K_CANCEL             // cancel caps-word, num-word
 
@@ -322,11 +328,11 @@ ZMK_BEHAVIOR(grave_tilde, tap_dance,
       label = "PTS";
       bindings = <
       // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                      ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬────────────╮
-            &kp LC(S)     &dup_merge   &transf_warp   &move_full     &kp LC(C)    &kp LC(V)                                            &kp LC(K)        ___           ___           ___           ___         &to DEF
+            &kp LC(S)     &dup_merge   &transf_warp   &move_full     &kp LC(C)    &kp LC(V)                                            &kp LC(K)       U_WH_U        U_MS_U        U_WH_D         &kp F       &to DEF
       // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                      ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼────────────┤
-	  &kp LC(LA(Q)) &kp new_layer     &kp L        &kp Z       &brush_eras      &kp G                                                  ___          ___           ___           ___           ___          ___
+	  &kp LC(LA(Q)) &kp new_layer     &kp L        &kp Z       &brush_eras      &kp G                                               &swapper       U_MS_L        U_MS_D        U_MS_R         ___           ___
       // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ╭─────────────╮     ╭─────────────╮ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼────────────┤
-          &kp LC(LA(G))  &desel_del       &kp M      &kp LC(LA(Z))   &kp LC(Z)       &kp X                                                 ___          ___           ___           ___           ___          ___
+          &kp LC(LA(G))  &desel_del       &kp M      &kp LC(LA(Z))   &kp LC(Z)      &kp X                                               &kp ESC        U_BTN1        U_BTN2        U_BTN3         ___           ___
                                                                                                       ___                ___                                                                                   
       // ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ╰─────────────╯     ╰─────────────╯ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┴────────────╯
                                         &kp LCTRL     &kp LSHFT      &kp LALT     &kp ENTER                                                ___          ___           ___           ___           
