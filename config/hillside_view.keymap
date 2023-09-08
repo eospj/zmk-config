@@ -142,7 +142,7 @@ ZMK_COMBO(fslh,    &kp FSLH,    RM3 RB3,     DEF     NUM, COMBO_TERM_SLOW)
         flavor = "balanced"; \
         tapping-term-ms = <280>; \
         quick-tap-ms = <QUICK_TAP_MS>; \
-        global-quick-tap-ms = <120>; \
+        global-quick-tap-ms = <150>; \
         bindings = <HOLD>, <TAP>; \
         hold-trigger-key-positions = <TRIGGER_POS>; \
         hold-trigger-on-release; \
@@ -274,8 +274,6 @@ ZMK_BEHAVIOR(swapper, tri_state,
 
   // misc aliases
 #define CANCEL      &kp K_CANCEL             // cancel caps-word, num-word
-#define DSK_PREV    &hmr RSHFT LG(LC(LEFT))  // previous desktop
-#define DSK_NEXT    &hmr LALT LG(LC(RIGHT))  // next     desktop
 
 // ZMK_CONDITIONAL_LAYER(SYM NUM, ADJ)  // SYM + NUM --> ADJ
 
@@ -409,7 +407,7 @@ ZMK_BEHAVIOR(swapper, tri_state,
       label = "NAV";
       bindings = <
       // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                      ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬────────────╮
-               ___      &kp LG(LC(S))     U_WH_U        U_MS_U        U_WH_D      &kp PSCRN                                               ___         DSK_PREV       NAV_UP       DSK_NEXT        ___        &to DEF
+               ___      &kp LG(LC(S))     U_WH_U        U_MS_U        U_WH_D      &kp PSCRN                                               ___    &kp LG(LC(LEFT))    NAV_UP   &kp LG(LC(RIGHT)    ___        &to DEF
       // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                      ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼────────────┤
             &swapper         ___          U_MS_L        U_MS_D        U_MS_R         ___                                                NAV_BSPC       NAV_LEFT     NAV_DOWN      NAV_RIGHT      NAV_DEL        ___
       // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ╭─────────────╮     ╭─────────────╮ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼────────────┤
