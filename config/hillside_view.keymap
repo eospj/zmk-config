@@ -181,7 +181,7 @@ ZMK_BEHAVIOR(num_dance, tap_dance,
 
 
 /* Nav cluster */
-
+/*
 // long-tap action on hold, short-tap action on all interrupts
 #define MT_CORE \
     flavor = "tap-preferred"; \
@@ -208,7 +208,7 @@ ZMK_BEHAVIOR(mt_end,  hold_tap,  bindings = <&masked_end>, <&kp>; MT_CORE)
     )
 MASK_MODS(masked_home, (MOD_LCTL), &kp HOME)
 MASK_MODS(masked_end,  (MOD_LCTL), &kp END)
-
+*/
 
 // tap: space | shift + tap: dot -> space -> sticky shift | hold: activate layer
 ZMK_BEHAVIOR(lt_spc, hold_tap,
@@ -402,22 +402,6 @@ ZMK_BEHAVIOR(swapper, tri_state,
       //                             ╰─────────────┴─────────────┴─────────────┴─────────────╯                                      ╰─────────────┴─────────────┴─────────────┴─────────────╯
       >;
       sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp C_VOL_UP C_VOL_DN>;
-    };
-   nav_layer {
-      label = "NAV";
-      bindings = <
-      // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                      ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬────────────╮
-               ___      &kp LG(LC(S))     U_WH_U        U_MS_U        U_WH_D      &kp PSCRN                                               ___    	___   	     NAV_UP   	    ___           ___         &to DEF
-      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                      ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼────────────┤
-            &swapper         ___          U_MS_L        U_MS_D        U_MS_R         ___                                                NAV_BSPC       NAV_LEFT     NAV_DOWN      NAV_RIGHT      NAV_DEL        ___
-      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ╭─────────────╮     ╭─────────────╮ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼────────────┤
- 	 &kp LG(LC(TAB))     ___          U_BTN1        U_BTN2        U_BTN3         ___                                                  ___           ___           ___           ___           ___           ___
-                                                                                                      ___                ___                                                                                    
-      // ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ╰─────────────╯     ╰─────────────╯ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┴────────────╯
-                                           ___           ___           ___           ___                                                  ___           ___           ___           ___           
-      //                             ╰─────────────┴─────────────┴─────────────┴─────────────╯                                      ╰─────────────┴─────────────┴─────────────┴─────────────╯
-      >;
-      sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
     };
   };
 };
