@@ -45,7 +45,6 @@
 #define ADJ 3
 #define PTS 4
 #define GAME 5
-#define NAV 6
 
 /* End of Defines */
 
