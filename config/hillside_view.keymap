@@ -197,6 +197,36 @@ ZMK_BEHAVIOR(dot_spc, macro,
 )
 
 
+/* Nav cluster */
+
+// long-tap action on hold, short-tap action on all interrupts
+#define MT_CORE \
+    flavor = "tap-preferred"; \
+    tapping-term-ms = <220>; \
+    quick-tap-ms = <220>; \
+    hold-trigger-key-positions = <0>;
+
+&mt { MT_CORE };
+ZMK_BEHAVIOR(mt_home, hold_tap, bindings = <&masked_home>, <&kp>; MT_CORE)
+ZMK_BEHAVIOR(mt_end,  hold_tap,  bindings = <&masked_end>, <&kp>; MT_CORE)
+
+#define NAV_LEFT  &mt_home 0   LEFT    // tap: left  | long-tap: beginning of line
+#define NAV_RIGHT &mt_end 0    RIGHT   // tap: right | long-tap: end       of line
+#define NAV_UP    &mt LC(HOME) UP      // tap: up    | long-tap: beginning of document
+#define NAV_DOWN  &mt LC(END)  DOWN    // tap: down  | long-tap: end       of document
+#define NAV_BSPC  &mt LC(BSPC) BSPC    // tap: bspc  | long-tap: delete word backward
+#define NAV_DEL   &mt LC(DEL)  DEL     // tap: del   | long-tap: delete word forward
+
+// mask CTRL when holding left/right to avoid accidental jumps to beginning/end of document
+#define MASK_MODS(NAME, MODS, BINDING) \
+    ZMK_BEHAVIOR(NAME, mod_morph, \
+        bindings = <BINDING>, <BINDING>; \
+        mods = <MODS>; \
+    )
+MASK_MODS(masked_home, (MOD_LCTL), &kp HOME)
+MASK_MODS(masked_end,  (MOD_LCTL), &kp END)
+
+
   /* Custom behaviors */
 
 ZMK_BEHAVIOR(win_sleep, macro,
@@ -243,6 +273,8 @@ ZMK_BEHAVIOR(swapper, tri_state,
 
   // misc aliases
 #define CANCEL      &kp K_CANCEL             // cancel caps-word, num-word
+#define DSK_PREV    &hmr RSHFT LG(LC(LEFT))  // previous desktop
+#define DSK_NEXT    &hmr LALT LG(LC(RIGHT))  // next     desktop
 
 // ZMK_CONDITIONAL_LAYER(SYM NUM, ADJ)  // SYM + NUM --> ADJ
 
@@ -284,7 +316,7 @@ ZMK_BEHAVIOR(swapper, tri_state,
            &smart_shft      &kp Z         &kp X         &kp C         &kp V        &kp B                                                 &kp N         &kp M        &kp COMMA     &kp DOT       &kp FSLH     &kp RSHFT  
                                                                                                       ___                 ___                                                                                         
       // ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ╰─────────────╯     ╰─────────────╯ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┴────────────╯
-                                          &kp UP       &mo SYM      &kp ENTER     &kp DOWN                                              &kp LEFT      &lt_spc SPACE     SMART_NUM     &kp RIGHT
+                                          &kp UP       &mo SYM      &kp ENTER     &kp DOWN                                              &kp LEFT     &kp SPACE     SMART_NUM     &kp RIGHT
       //                             ╰─────────────┴─────────────┴─────────────┴─────────────╯                                      ╰─────────────┴─────────────┴─────────────┴─────────────╯
       >;
 
@@ -299,7 +331,7 @@ ZMK_BEHAVIOR(swapper, tri_state,
       // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                      ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼────────────┤
               ___          &kp N1         &kp N2        &kp N3       &kp N4        &kp N5                                               &kp N6        &kp N7         &kp N8        &kp N9        &kp N0         ___
       // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ╭─────────────╮     ╭─────────────╮ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼────────────┤
-              ___        &less_bslash    &kp PIPE    &equal_plus    &min_under   &left_brac                                           &right_brac  &squote_dquote     ___          ___        &more_fslash      ___
+             DSK_PREV      NAV_LEFT      NAV_DOWN       NAV_UP      NAV_RIGHT      DSK_NEXT                                           &right_brac    NAV_BSPC        ___           ___       &more_fslash      ___
                                                                                                        ___                ___                                                                                          
       // ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ╰─────────────╯     ╰─────────────╯ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┴────────────╯
                                            ___           ___           ___           ___                                                 ___          ___            ___           ___         
@@ -315,7 +347,7 @@ ZMK_BEHAVIOR(swapper, tri_state,
       // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                      ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼────────────┤
                ___          &kp N1        &kp N2        &kp N3        &kp N4       &kp N5                                                &kp N6        &kp N7        &kp N8        &kp N9        &kp N0         ___
       // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ╭─────────────╮     ╭─────────────╮ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼────────────┤
-               ___       &less_bslash    &kp PIPE    &equal_plus    &min_under    &left_brac                                          &right_brac  &squote_dquote     ___           ___       &more_fslash      ___  
+             DSK_PREV      NAV_LEFT      NAV_DOWN       NAV_UP      NAV_RIGHT      DSK_NEXT                                           &right_brac    NAV_BSPC        ___           ___       &more_fslash      ___
                                                                                                       ___                ___                                                                                          
       // ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ╰─────────────╯     ╰─────────────╯ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┴────────────╯
                                            ___            ___           ___           ___                                                ___          ___            ___           ___         
