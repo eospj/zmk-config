@@ -191,7 +191,7 @@ ZMK_BEHAVIOR(lt_spc, hold_tap,
 
 ZMK_BEHAVIOR(lt_spc, mod_morph,
     bindings = <&kp SPACE>, <&spc_morph>;
-    mods = <(MOD_SPACE|MOD_SPACE)>;
+    mods = <(MOD_LSFT|MOD_RSFT)>;
 )
 ZMK_BEHAVIOR(spc_morph, mod_morph,
     bindings = <&kp SPACE>, <&dot_spc>;
