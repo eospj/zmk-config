@@ -180,11 +180,18 @@ ZMK_BEHAVIOR(num_dance, tap_dance,
 
 
 // tap: space | shift + tap: dot -> space -> sticky shift | hold: activate layer
+/*
 ZMK_BEHAVIOR(lt_spc, hold_tap,
     flavor = "balanced";
     tapping-term-ms = <200>;
     quick-tap-ms = <QUICK_TAP_MS>;
     bindings = <&mo>, <&spc_morph>;
+)
+*/
+
+ZMK_BEHAVIOR(lt_spc, mod_morph,
+    bindings = <&kp SPACE>, <&spc_morph>;
+    mods = <(MOD_SPACE|MOD_SPACE)>;
 )
 ZMK_BEHAVIOR(spc_morph, mod_morph,
     bindings = <&kp SPACE>, <&dot_spc>;
@@ -228,6 +235,18 @@ MASK_MODS(masked_end,  (MOD_LCTL), &kp END)
 
 
   /* Custom behaviors */
+
+// tap: left-parenthesis | shft + tap: less-than
+ZMK_BEHAVIOR(lpar_lt, mod_morph,
+    bindings = <&kp LPAR>, <&kp LT>;
+    mods = <(MOD_LSFT|MOD_RSFT)>;
+)
+
+// tap: right-parenthesis | shft + tap: greater-than
+ZMK_BEHAVIOR(rpar_gt, mod_morph,
+    bindings = <&kp RPAR>, <&kp GT>;
+    mods = <(MOD_LSFT|MOD_RSFT)>;
+)
 
 ZMK_BEHAVIOR(win_sleep, macro,
     wait-ms = <500>;
@@ -316,7 +335,7 @@ ZMK_BEHAVIOR(swapper, tri_state,
            &smart_shft      &kp Z         &kp X         &kp C         &kp V        &kp B                                                 &kp N         &kp M        &kp COMMA     &kp DOT       &kp FSLH     &kp RSHFT  
                                                                                                       ___                 ___                                                                                         
       // ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ╰─────────────╯     ╰─────────────╯ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┴────────────╯
-                                          &kp UP       &mo SYM      &kp ENTER     &kp DOWN                                              &kp LEFT     &lt_spc DEF 0   SMART_NUM     &kp RIGHT
+                                          &kp UP       &mo SYM      &kp ENTER     &kp DOWN                                              &kp LEFT     &lt_spc   SMART_NUM     &kp RIGHT
       //                             ╰─────────────┴─────────────┴─────────────┴─────────────╯                                      ╰─────────────┴─────────────┴─────────────┴─────────────╯
       >;
 
