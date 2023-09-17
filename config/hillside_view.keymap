@@ -341,7 +341,7 @@ ZMK_BEHAVIOR(swapper, tri_state,
            &smart_shft      &kp Z         &kp X         &kp C         &kp V        &kp B                                                 &kp N         &kp M        &kp COMMA     &kp DOT       &kp FSLH     &kp RSHFT  
                                                                                                       ___                 ___                                                                                         
       // ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ╰─────────────╯     ╰─────────────╯ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┴────────────╯
-                                          &mo NAV      &mo SYM      &kp ENTER     &kp CTRL                                              &kp LEFT      &lt_spc      SMART_NUM     &kp RIGHT
+                                          &mo NAV      &mo SYM      &kp ENTER     &kp LCTRL                                             &kp LEFT      &lt_spc      SMART_NUM     &kp RIGHT
       //                             ╰─────────────┴─────────────┴─────────────┴─────────────╯                                      ╰─────────────┴─────────────┴─────────────┴─────────────╯
       >;
 
