@@ -99,10 +99,13 @@
 // #define HRC_RPAR   &hmr_rpar_gt LA(LCTRL) 0
 
 /* Horizontal combos - left hand */
-ZMK_COMBO(lpar,  &kp LPAR,      LM0 LM1,     DEF SYM NUM, COMBO_TERM_SLOW)
+ZMK_COMBO(lpar,  &kp LPAR,      LM1 LM2,     DEF SYM NUM, COMBO_TERM_SLOW)
+ZMK_COMBO(minus, &kp MINUS,     LM2 LM3,     DEF SYM NUM, COMBO_TERM_SLOW)
 
 /* Horizontal combos - right hand */
-ZMK_COMBO(rpar,  &kp RPAR,      RM0 RM1,     DEF SYM NUM, COMBO_TERM_SLOW)
+ZMK_COMBO(rpar,  &kp RPAR,      RM1 RM2,     DEF SYM NUM, COMBO_TERM_SLOW)
+ZMK_COMBO(sqt,   &kp SQT,       RM2 RM3,     DEF SYM NUM, COMBO_TERM_SLOW)
+ZMK_COMBO(dqt,   &kp DQT,       RM3 RM4,     DEF SYM NUM, COMBO_TERM_SLOW)
 
 
 /* Vertical combos - left hand */
@@ -113,9 +116,9 @@ ZMK_COMBO(dllr,  &kp DLLR,      LT1 LM1,     DEF     NUM, COMBO_TERM_SLOW)
 ZMK_COMBO(prcnt, &kp PRCNT,     LT0 LM0,     DEF     NUM, COMBO_TERM_SLOW)
 
 // ZMK_COMBO(grave, &kp EQUAL,     LM4 LB4,     DEF     NUM, COMBO_TERM_SLOW)
-ZMK_COMBO(bslh,  &kp BSLH,      LM3 LB3,     DEF     NUM, COMBO_TERM_SLOW)
-ZMK_COMBO(under, &kp UNDER,     LM2 LB2,     DEF     NUM, COMBO_TERM_SLOW)
-ZMK_COMBO(minus, &kp MINUS,     LM1 LB1,     DEF     NUM, COMBO_TERM_SLOW)
+// ZMK_COMBO(bslh,  &kp BSLH,      LM3 LB3,     DEF     NUM, COMBO_TERM_SLOW)
+// ZMK_COMBO(under, &kp UNDER,     LM2 LB2,     DEF     NUM, COMBO_TERM_SLOW)
+// ZMK_COMBO(minus, &kp MINUS,     LM1 LB1,     DEF     NUM, COMBO_TERM_SLOW)
 // ZMK_COMBO(tilde, &kp CARET,  LM0 LB0,     DEF     NUM, COMBO_TERM_SLOW)
 
 /* Vertical combos - right hand */
@@ -126,9 +129,9 @@ ZMK_COMBO(plus,  &kp PLUS,      RT3 RM3,     DEF     NUM, COMBO_TERM_SLOW)
 ZMK_COMBO(equal, &kp EQUAL,     RT4 RM4,     DEF     NUM, COMBO_TERM_SLOW)
 
 // ZMK_COMBO(under, &kp UNDER,     RM0 RB0,     DEF     NUM, COMBO_TERM_SLOW)
-ZMK_COMBO(sqt,     &kp SQT,     RM1 RB1,     DEF     NUM, COMBO_TERM_SLOW)
-ZMK_COMBO(dqt,     &kp DQT,     RM2 RB2,     DEF     NUM, COMBO_TERM_SLOW)
-ZMK_COMBO(fslh,    &kp FSLH,    RM3 RB3,     DEF     NUM, COMBO_TERM_SLOW)
+// ZMK_COMBO(sqt,     &kp SQT,     RM1 RB1,     DEF     NUM, COMBO_TERM_SLOW)
+// ZMK_COMBO(dqt,     &kp DQT,     RM2 RB2,     DEF     NUM, COMBO_TERM_SLOW)
+// ZMK_COMBO(fslh,    &kp FSLH,    RM3 RB3,     DEF     NUM, COMBO_TERM_SLOW)
 // ZMK_COMBO(under, &kp UNDER,     RM4 RB4,     DEF     NUM, COMBO_TERM_SLOW)
 
 
