@@ -118,8 +118,8 @@ ZMK_COMBO(prcnt, &kp PRCNT,     LT0 LM0,     DEF     NUM, COMBO_TERM_SLOW)
 
 // ZMK_COMBO(grave, &kp EQUAL,     LM4 LB4,     DEF     NUM, COMBO_TERM_SLOW)
 // ZMK_COMBO(bslh,  &kp BSLH,      LM3 LB3,     DEF     NUM, COMBO_TERM_SLOW)
-// ZMK_COMBO(under, &kp UNDER,     LM2 LB2,     DEF     NUM, COMBO_TERM_SLOW)
-// ZMK_COMBO(minus, &kp MINUS,     LM1 LB1,     DEF     NUM, COMBO_TERM_SLOW)
+ ZMK_COMBO(under, &kp UNDER,     LM2 LB2,     DEF     NUM, COMBO_TERM_SLOW)
+ ZMK_COMBO(minus, &kp MINUS,     LM1 LB1,     DEF     NUM, COMBO_TERM_SLOW)
 // ZMK_COMBO(tilde, &kp CARET,  LM0 LB0,     DEF     NUM, COMBO_TERM_SLOW)
 
 /* Vertical combos - right hand */
@@ -130,8 +130,8 @@ ZMK_COMBO(plus,  &kp PLUS,      RT3 RM3,     DEF     NUM, COMBO_TERM_SLOW)
 ZMK_COMBO(equal, &kp EQUAL,     RT4 RM4,     DEF     NUM, COMBO_TERM_SLOW)
 
 // ZMK_COMBO(under, &kp UNDER,     RM0 RB0,     DEF     NUM, COMBO_TERM_SLOW)
-// ZMK_COMBO(sqt,     &kp SQT,     RM1 RB1,     DEF     NUM, COMBO_TERM_SLOW)
-// ZMK_COMBO(dqt,     &kp DQT,     RM2 RB2,     DEF     NUM, COMBO_TERM_SLOW)
+ ZMK_COMBO(sqt,     &kp SQT,     RM1 RB1,     DEF     NUM, COMBO_TERM_SLOW)
+ ZMK_COMBO(dqt,     &kp DQT,     RM2 RB2,     DEF     NUM, COMBO_TERM_SLOW)
 // ZMK_COMBO(fslh,    &kp FSLH,    RM3 RB3,     DEF     NUM, COMBO_TERM_SLOW)
 // ZMK_COMBO(under, &kp UNDER,     RM4 RB4,     DEF     NUM, COMBO_TERM_SLOW)
 
