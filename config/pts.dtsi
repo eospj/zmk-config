@@ -20,3 +20,19 @@ ZMK_BEHAVIOR(desel_del, tap_dance,
     tapping-term-ms = <300>;
     bindings = <&kp LC(D)>, <&kp DELETE>;
 )
+ZMK_BEHAVIOR(copy_paste, tap_dance,
+    tapping-term-ms = <300>;
+    bindings = <&kp LC(C)>, <&kp LC(V)>;
+)
+ZMK_BEHAVIOR(soft_vivid, tap_dance,
+    tapping-term-ms = <300>;
+    bindings = <&kp LS(LA(F))>, <&kp LS(LA(V))>;
+)
+ZMK_BEHAVIOR(multiply_screen, tap_dance,
+    tapping-term-ms = <300>;
+    bindings = <&kp LS(LA(M))>, <&kp LS(LA(S))>;
+)
+ZMK_BEHAVIOR(g_normal, tap_dance,
+    tapping-term-ms = <300>;
+    bindings = <&kp G>, <&kp LS(LA(N))>;
+)
