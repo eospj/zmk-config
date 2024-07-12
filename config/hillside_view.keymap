@@ -279,16 +279,11 @@ ZMK_BEHAVIOR(more_fslash, tap_dance,
 
 
 // Alt+Tab swapper, requires PR #1366
-/*
 ZMK_BEHAVIOR(swapper, tri_state,
     bindings = <&kt LALT>, <&kp TAB>, <&kt LALT>;
     ignored-key-positions = <LT2>;
 )
-*/
-ZMK_TRI_STATE(swapper,
-    bindings = <&kt LALT>, <&kp TAB>, <&kt LALT>;
-    ignored-key-positions = <LT2>;
-)
+
 
   // misc aliases
 #define CANCEL      &kp K_CANCEL             // cancel caps-word, num-word
