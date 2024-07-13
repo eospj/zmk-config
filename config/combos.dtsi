@@ -27,7 +27,7 @@
 #define COMBO_TERM_SLOW 30
 #define COMBO_TERM_SLOWW 90
 
-
+/ {
 /* Horizontal combos - left hand */
 ZMK_COMBO(lpar,  &kp LPAR,      LM1 LM2,     DEF SYM NUM, COMBO_TERM_SLOWW)
 ZMK_COMBO(minus, &kp MINUS,     LM2 LM3,     DEF SYM NUM, COMBO_TERM_SLOWW)
@@ -48,3 +48,4 @@ ZMK_COMBO(8,    &kp N8,        RT2 RM2,     DEF NAV, COMBO_TERM_SLOW)
 ZMK_COMBO(9,    &kp N9,        RT3 RM3,     DEF NAV, COMBO_TERM_SLOW)
 ZMK_COMBO(0,    &kp N0,        RT4 RM4,     DEF NAV, COMBO_TERM_SLOW)
 
+};
