@@ -170,14 +170,14 @@ ZMK_BEHAVIOR(swapper, tri_state,
 )
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+/*
   // misc aliases
 #define CANCEL      &kp K_CANCEL             // cancel caps-word, num-word
 #define DSK_PREV    &hmr RSHFT LG(LC(LEFT))  // previous desktop
 #define DSK_NEXT    &hmr LALT LG(LC(RIGHT))  // next     desktop
 
 // ZMK_CONDITIONAL_LAYER(SYM FUNC, ADJ)  // SYM + FUNC --> ADJ
-
+*/
 / {
   
   conditional_layers {
@@ -227,7 +227,7 @@ ZMK_BEHAVIOR(swapper, tri_state,
       label = "SYMBOLS";
       bindings = <
       // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                      ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬────────────╮
-            &kp GRAVE        ___        &kp LC(W)        ___           ___        &kp LC(T)                                             NAV_BSPC      DSK_PREV       NAV_UP       DSK_NEXT      NAV_DEL      &kp TILDE
+            &kp GRAVE        ___        &kp LC(W)        ___           ___        &kp LC(T)                                             NAV_BSPC        ___          NAV_UP         ___         NAV_DEL      &kp TILDE
       // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                      ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼────────────┤
             &swapper        &kp LC(A)     &kp LC(S)      ___        &kp LC(F)  	     ___                                      	     &kp LG(LS(S))    NAV_LEFT      NAV_DOWN     NAV_RIGHT        ___           ___
       // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ╭─────────────╮     ╭─────────────╮ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼────────────┤
