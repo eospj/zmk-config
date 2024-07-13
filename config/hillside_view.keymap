@@ -94,7 +94,7 @@
 #define COMBO_IDLE_SLOW 50
 
 /* Horizontal combos - left hand */
-
+/ {
 ZMK_COMBO(lpar,  &kp LPAR,      LM1 LM2,     DEF SYM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
 ZMK_COMBO(minus, &kp MINUS,     LM2 LM3,     DEF SYM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
 
@@ -114,7 +114,7 @@ ZMK_COMBO(7,    &kp N7,        RT1 RM1,     DEF NAV, COMBO_TERM_SLOW, COMBO_IDLE
 ZMK_COMBO(8,    &kp N8,        RT2 RM2,     DEF NAV, COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
 ZMK_COMBO(9,    &kp N9,        RT3 RM3,     DEF NAV, COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
 ZMK_COMBO(0,    &kp N0,        RT4 RM4,     DEF NAV, COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
-
+};
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
