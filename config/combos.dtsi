@@ -29,8 +29,8 @@
 
 /* Horizontal combos - left hand */
 
-ZMK_COMBO(lpar,  &kp LPAR,      LM1 LM2,     DEF SYM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
-ZMK_COMBO(minus, &kp MINUS,     LM2 LM3,     DEF SYM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+// ZMK_COMBO(lpar,  &kp LPAR,      LM1 LM2,     DEF SYM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+// ZMK_COMBO(minus, &kp MINUS,     LM2 LM3,     DEF SYM, COMBO_TERM_FAST, COMBO_IDLE_FAST)
 
 /* Horizontal combos - right hand */
 
