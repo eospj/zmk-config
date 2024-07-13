@@ -20,37 +20,6 @@
  P : Palm
 */
 
-#undef COMBO_HOOK
-#define COMBO_HOOK global-quick-tap-ms = <150>;
-
-#define COMBO_TERM_FAST 18
-#define COMBO_TERM_SLOW 30
-#define COMBO_TERM_SLOWW 90
-
-/*
-/* Horizontal combos - left hand */
-ZMK_COMBO(lpar,  &kp LPAR,      LM1 LM2,     DEF SYM NUM, COMBO_TERM_SLOWW)
-ZMK_COMBO(minus, &kp MINUS,     LM2 LM3,     DEF SYM NUM, COMBO_TERM_SLOWW)
-
-/* Horizontal combos - right hand */
-
-/* Vertical combos - left hand */
-ZMK_COMBO(1,    &kp N1,        LT4 LM4,     DEF NAV, COMBO_TERM_SLOW)
-ZMK_COMBO(2,    &kp N2,        LT3 LM3,     DEF NAV, COMBO_TERM_SLOW)
-ZMK_COMBO(3,    &kp N3,        LT2 LM2,     DEF NAV, COMBO_TERM_SLOW)
-ZMK_COMBO(4,    &kp N4,        LT1 LM1,     DEF NAV, COMBO_TERM_SLOW)
-ZMK_COMBO(5,    &kp N5,        LT0 LM0,     DEF NAV, COMBO_TERM_SLOW)
-
-/* Vertical combos - right hand */
-ZMK_COMBO(6,    &kp N6,        RT0 RM0,     DEF NAV, COMBO_TERM_SLOW)
-ZMK_COMBO(7,    &kp N7,        RT1 RM1,     DEF NAV, COMBO_TERM_SLOW)
-ZMK_COMBO(8,    &kp N8,        RT2 RM2,     DEF NAV, COMBO_TERM_SLOW)
-ZMK_COMBO(9,    &kp N9,        RT3 RM3,     DEF NAV, COMBO_TERM_SLOW)
-ZMK_COMBO(0,    &kp N0,        RT4 RM4,     DEF NAV, COMBO_TERM_SLOW)
-
-*/
-
-
 / {
 
 /* Vertical combos - left hand */
