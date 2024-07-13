@@ -27,7 +27,7 @@
 #define COMBO_TERM_SLOW 30
 #define COMBO_TERM_SLOWW 90
 
-/ {
+/*
 /* Horizontal combos - left hand */
 ZMK_COMBO(lpar,  &kp LPAR,      LM1 LM2,     DEF SYM NUM, COMBO_TERM_SLOWW)
 ZMK_COMBO(minus, &kp MINUS,     LM2 LM3,     DEF SYM NUM, COMBO_TERM_SLOWW)
@@ -48,4 +48,92 @@ ZMK_COMBO(8,    &kp N8,        RT2 RM2,     DEF NAV, COMBO_TERM_SLOW)
 ZMK_COMBO(9,    &kp N9,        RT3 RM3,     DEF NAV, COMBO_TERM_SLOW)
 ZMK_COMBO(0,    &kp N0,        RT4 RM4,     DEF NAV, COMBO_TERM_SLOW)
 
+*/
+
+
+/ {
+
+/* Vertical combos - left hand */
+    combos {
+        compatible = "zmk,combos";
+        num1 {
+            timeout-ms = <50>;
+            key-positions = <1 13>;
+            bindings = <&kp N1>;
+        };
+    };
+    combos {
+        compatible = "zmk,combos";
+        num2 {
+            timeout-ms = <50>;
+            key-positions = <2 14>;
+            bindings = <&kp N2>;
+        };
+    };
+    combos {
+        compatible = "zmk,combos";
+        num3 {
+            timeout-ms = <50>;
+            key-positions = <3 15>;
+            bindings = <&kp N3>;
+        };
+    };
+    combos {
+        compatible = "zmk,combos";
+        num4 {
+            timeout-ms = <50>;
+            key-positions = <4 16>;
+            bindings = <&kp N4>;
+        };
+    };
+    combos {
+        compatible = "zmk,combos";
+        num5 {
+            timeout-ms = <50>;
+            key-positions = <5 17>;
+            bindings = <&kp N5>;
+        };
+    };
+
+/* Vertical combos - right hand */
+    combos {
+        compatible = "zmk,combos";
+        num6 {
+            timeout-ms = <50>;
+            key-positions = <6 18>;
+            bindings = <&kp N6>;
+        };
+    };
+combos {
+        compatible = "zmk,combos";
+        num7 {
+            timeout-ms = <50>;
+            key-positions = <7 19>;
+            bindings = <&kp N7>;
+        };
+    };
+combos {
+        compatible = "zmk,combos";
+        num8 {
+            timeout-ms = <50>;
+            key-positions = <8 20>;
+            bindings = <&kp N8>;
+        };
+    };
+combos {
+        compatible = "zmk,combos";
+        num9 {
+            timeout-ms = <50>;
+            key-positions = <9 21>;
+            bindings = <&kp N9>;
+        };
+    };
+combos {
+        compatible = "zmk,combos";
+        num0 {
+            timeout-ms = <50>;
+            key-positions = <10 22>;
+            bindings = <&kp N0>;
+        };
+    };
 };
