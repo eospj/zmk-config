@@ -177,14 +177,14 @@ ZMK_BEHAVIOR(swapper, tri_state,
 )
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/*
+
   // misc aliases
 #define CANCEL      &kp K_CANCEL             // cancel caps-word, num-word
 #define DSK_PREV    &hmr RSHFT LG(LC(LEFT))  // previous desktop
 #define DSK_NEXT    &hmr LALT LG(LC(RIGHT))  // next     desktop
 
 // ZMK_CONDITIONAL_LAYER(SYM FUNC, ADJ)  // SYM + FUNC --> ADJ
-*/
+
 / {
   
   conditional_layers {
