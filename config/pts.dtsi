@@ -1,0 +1,38 @@
+#define new_layer LC(LS(LA(N)))
+
+ZMK_BEHAVIOR(dup_merge, tap_dance,
+    tapping-term-ms = <300>;
+    bindings = <&kp LC(J)>, <&kp LC(E)>;
+)
+ZMK_BEHAVIOR(transf_warp, tap_dance,
+    tapping-term-ms = <300>;
+    bindings = <&kp LC(T)>, <&kp LC(LA(W))>;
+)
+ZMK_BEHAVIOR(move_full, tap_dance,
+    tapping-term-ms = <300>;
+    bindings = <&kp SPACE>, <&kp LC(N0)>;
+)
+ZMK_BEHAVIOR(brush_eras, tap_dance,
+    tapping-term-ms = <300>;
+    bindings = <&kp B>, <&kp GRAVE>;
+)
+ZMK_BEHAVIOR(desel_del, tap_dance,
+    tapping-term-ms = <300>;
+    bindings = <&kp LC(D)>, <&kp DELETE>;
+)
+ZMK_BEHAVIOR(copy_paste, tap_dance,
+    tapping-term-ms = <300>;
+    bindings = <&kp LC(C)>, <&kp LC(V)>;
+)
+ZMK_BEHAVIOR(soft_vivid, tap_dance,
+    tapping-term-ms = <300>;
+    bindings = <&kp LS(LA(F))>, <&kp LS(LA(V))>;
+)
+ZMK_BEHAVIOR(multiply_screen, tap_dance,
+    tapping-term-ms = <300>;
+    bindings = <&kp LS(LA(M))>, <&kp LS(LA(S))>;
+)
+ZMK_BEHAVIOR(g_normal, tap_dance,
+    tapping-term-ms = <300>;
+    bindings = <&kp G>, <&kp LS(LA(N))>;
+)
