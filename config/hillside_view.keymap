@@ -45,6 +45,7 @@
 #define PTS 4
 #define GAME 5
 #define WUWA 6
+#define UC 7
 
 
 /* End of Defines */
@@ -264,6 +265,7 @@ ZMK_BEHAVIOR(swapper, tri_state,
       // Bindings for encoders, if you don't have encoders you can remove this line from all layers. If you leave it here it won't affect your keymap.
       sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
     };
+
     sym_layer {
       label = "SYMBOLS";
       bindings = <
@@ -280,13 +282,14 @@ ZMK_BEHAVIOR(swapper, tri_state,
       >;
       sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
     };
+
     func_layer {
       label = "FUNCTIONS";
       bindings = <
       // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                      ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬────────────╮
              &kp F1        &kp F2         &kp F3        &kp F4        &kp F5       &kp F6                                                &kp F7        &kp F8        &kp F9       &kp F10      &kp F11       &kp F12
       // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                      ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼────────────┤
-               ___           ___           ___           ___           ___           ___                                                  ___         DSK_PREV          ___       DSK_NEXT          ___          ___
+               ___           ___           ___           ___           ___           ___                                                  ___     &kp LG(LC(LEFT))    ___    &kp LG(LC(RIGHT))          ___          ___
       // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ╭─────────────╮     ╭─────────────╮ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼────────────┤
                ___           ___           ___		 ___ 	       ___ 	     ___                              		          ___ 		 ___   	      ___            ___          ___          ___                                                                                                        ___                ___                                                                                          
       // ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ╰─────────────╯     ╰─────────────╯ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┴────────────╯
@@ -295,6 +298,7 @@ ZMK_BEHAVIOR(swapper, tri_state,
       >;
       sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
     };
+
     adj_layer {
       label = "ADJUST";
       bindings = <
@@ -311,6 +315,7 @@ ZMK_BEHAVIOR(swapper, tri_state,
       >;
       sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
     };
+
     pts_layer {
       label = "PTS";
       bindings = <
@@ -327,6 +332,7 @@ ZMK_BEHAVIOR(swapper, tri_state,
       >;
       sensor-bindings = <&inc_dec_kp LEFT_BRACKET RIGHT_BRACKET &inc_dec_kp C_VOL_UP C_VOL_DN>;
     };
+
     game_layer {
       label = "GAME";
       bindings = <
@@ -361,6 +367,22 @@ ZMK_BEHAVIOR(swapper, tri_state,
       //                             ╰─────────────┴─────────────┴─────────────┴─────────────╯                                      ╰─────────────┴─────────────┴─────────────┴─────────────╯
       >;
       sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp C_VOL_UP C_VOL_DN>;
+    };
+
+    uc_layer {
+      label = "UC";
+      bindings = <
+      // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                      ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬────────────╮
+               ___        &el_omega        ___       &el_epsilon     &el_rho      &el_theta                                               ___           ___        &el_iota     &el_omikron     &el_pi           ___
+      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                      ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼────────────┤
+               ___        &el_alpha     &el_sigma     &el_delta      &el_phi      &el_gamma                                               ___           ___        &el_kappa     &el_lambda       ___          ___
+      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ╭─────────────╮     ╭─────────────╮ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼────────────┤
+               ___         &el_zeta      &el_xi        &el_chi 	       ___ 	   &el_beta                                              &el_nu        &el_mu         ___           ___           ___          ___                                                                                                        ___                ___                                                                                          
+      // ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ╰─────────────╯     ╰─────────────╯ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┴────────────╯
+                                           ___            ___           ___          ___                                                  ___            ___          ___            ___         
+      //                             ╰─────────────┴─────────────┴─────────────┴─────────────╯                                      ╰─────────────┴─────────────┴─────────────┴─────────────╯
+      >;
+      sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
     };
   };
 };
