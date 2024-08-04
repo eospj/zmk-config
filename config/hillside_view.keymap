@@ -95,36 +95,31 @@
 #define COMBO_TERM_SLOWW 90
 
 /* Horizontal combos - left hand */
-ZMK_COMBO(lpar,  &kp LPAR,      LM1 LM2,     DEF SYM, COMBO_TERM_SLOWW)
-ZMK_COMBO(minus, &kp MINUS,     LM2 LM3,     DEF SYM, COMBO_TERM_SLOWW)
+ZMK_COMBO(lpar, 	 &kp LPAR,      LM1 LM2,     DEF SYM, COMBO_TERM_SLOWW)
+ZMK_COMBO(minus, 	 &kp MINUS,     LM2 LM3,     DEF SYM, COMBO_TERM_SLOWW)
 
 /* Horizontal combos - right hand */
-ZMK_COMBO(rpar,  &kp RPAR,      RM1 RM2,     DEF SYM, COMBO_TERM_SLOWW)
-ZMK_COMBO(sqt,   &kp SQT,       RM2 RM3,     DEF SYM, COMBO_TERM_SLOWW)
-ZMK_COMBO(dqt,   &kp DQT,       RM3 RM4,     DEF SYM, COMBO_TERM_SLOWW)
+ZMK_COMBO(rpar, 	 &kp RPAR,      RM1 RM2,     DEF SYM, COMBO_TERM_SLOWW)
+ZMK_COMBO(sqt, 	         &kp SQT,       RM2 RM3,     DEF SYM, COMBO_TERM_SLOWW)
+ZMK_COMBO(dqt, 	         &kp DQT,       RM3 RM4,     DEF SYM, COMBO_TERM_SLOWW)
 
 
 /* Vertical combos - left hand */
-ZMK_COMBO(num1,  &kp N1,        LT4 LM4,     DEF SYM, COMBO_TERM_SLOW)
-ZMK_COMBO(num2,  &kp N2,        LT3 LM3,     DEF SYM, COMBO_TERM_SLOW)
-ZMK_COMBO(num3,  &kp N3,        LT2 LM2,     DEF SYM, COMBO_TERM_SLOW)
-ZMK_COMBO(num4,  &kp N4,        LT1 LM1,     DEF SYM, COMBO_TERM_SLOW)
-ZMK_COMBO(num5,  &kp N5,        LT0 LM0,     DEF SYM, COMBO_TERM_SLOW)
+ZMK_COMBO(num1, 	 &kp N1,        LT4 LM4,     DEF SYM, COMBO_TERM_SLOW)
+ZMK_COMBO(num2,	         &kp N2,        LT3 LM3,     DEF SYM, COMBO_TERM_SLOW)
+ZMK_COMBO(num3, 	 &kp N3,        LT2 LM2,     DEF SYM, COMBO_TERM_SLOW)
+ZMK_COMBO(num4,  	 &kp N4,        LT1 LM1,     DEF SYM, COMBO_TERM_SLOW)
+ZMK_COMBO(num5,  	 &kp N5,        LT0 LM0,     DEF SYM, COMBO_TERM_SLOW)
 
-ZMK_COMBO(under, &kp UNDER,     LM2 LB2,     DEF SYM, COMBO_TERM_SLOW)
-ZMK_COMBO(minus, &kp MINUS,     LM1 LB1,     DEF SYM, COMBO_TERM_SLOW)
-
+ZMK_COMBO(num1, 	 &kp N1,        LT4 LM4,     DEF SYM, COMBO_TERM_SLOW)
 
 /* Vertical combos - right hand */
-ZMK_COMBO(num6,  &kp N6,        RT0 RM0,     DEF SYM, COMBO_TERM_SLOW)
-ZMK_COMBO(num7,  &kp N7,        RT1 RM1,     DEF SYM, COMBO_TERM_SLOW)
-ZMK_COMBO(num8,  &kp N8,        RT2 RM2,     DEF SYM, COMBO_TERM_SLOW)
-ZMK_COMBO(num9,  &kp N9,        RT3 RM3,     DEF SYM, COMBO_TERM_SLOW)
-ZMK_COMBO(num0,  &kp N0,        RT4 RM4,     DEF SYM, COMBO_TERM_SLOW)
+ZMK_COMBO(num6, 	 &kp N6,        RT0 RM0,     DEF SYM, COMBO_TERM_SLOW)
+ZMK_COMBO(num7,  	 &kp N7,        RT1 RM1,     DEF SYM, COMBO_TERM_SLOW)
+ZMK_COMBO(num8,  	 &kp N8,        RT2 RM2,     DEF SYM, COMBO_TERM_SLOW)
+ZMK_COMBO(num9,  	 &kp N9,        RT3 RM3,     DEF SYM, COMBO_TERM_SLOW)
+ZMK_COMBO(num0,  	 &kp N0,        RT4 RM4,     DEF SYM, COMBO_TERM_SLOW)
 
-
- ZMK_COMBO(sqt,     &kp SQT,     RM1 RB1,    DEF SYM, COMBO_TERM_SLOW)
- ZMK_COMBO(dqt,     &kp DQT,     RM2 RB2,    DEF SYM, COMBO_TERM_SLOW)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -273,9 +268,9 @@ ZMK_BEHAVIOR(swapper, tri_state,
       label = "SYMBOLS";
       bindings = <
       // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                      ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬────────────╮
-            &kp GRAVE        ___        &kp LC(W)        ___           ___        &kp LC(T)                                             NAV_BSPC        ___          NAV_UP         ___         NAV_DEL      &kp TILDE
+            &kp GRAVE     &kp TILDE     &kp LC(W)        ___           ___        &kp LC(T)                                             NAV_BSPC        ___          NAV_UP         ___         NAV_DEL         ___
       // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                      ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼────────────┤
-            &swapper        &kp LC(A)     &kp LC(S)      ___        &kp LC(F)  	     ___                                      	     &kp LG(LS(S))    NAV_LEFT      NAV_DOWN     NAV_RIGHT        ___           ___
+            &swapper      &kp LC(A)     &kp LC(S)        ___        &kp LC(F)  	     ___                                      	     &kp LG(LS(S))    NAV_LEFT      NAV_DOWN     NAV_RIGHT        ___           ___
       // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ╭─────────────╮     ╭─────────────╮ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼────────────┤
             &kp CAPS       &kp LC(Z)     &kp LC(X)    &kp LC(C)     &kp LC(V)        ___                                                  ___     &kp LC(LS(TAB)) &kp LC(TAB)       ___           ___           ___
                                                                                                       ___                ___                                                                                    
@@ -291,7 +286,7 @@ ZMK_BEHAVIOR(swapper, tri_state,
       // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                      ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬────────────╮
              &kp F1        &kp F2         &kp F3        &kp F4        &kp F5       &kp F6                                                &kp F7        &kp F8        &kp F9       &kp F10      &kp F11       &kp F12
       // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                      ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼────────────┤
-               ___           ___           ___           ___           ___           ___                                                  ___            ___          ___            ___          ___          ___
+               ___           ___           ___           ___           ___           ___                                                  ___         DSK_PREV          ___       DSK_NEXT          ___          ___
       // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ╭─────────────╮     ╭─────────────╮ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼────────────┤
                ___           ___           ___		 ___ 	       ___ 	     ___                              		          ___ 		 ___   	      ___            ___          ___          ___                                                                                                        ___                ___                                                                                          
       // ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ╰─────────────╯     ╰─────────────╯ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┴────────────╯
@@ -304,7 +299,7 @@ ZMK_BEHAVIOR(swapper, tri_state,
       label = "ADJUST";
       bindings = <
       // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                      ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬────────────╮
-           &bt BT_CLR  &bt BT_SEL 0    &bt BT_SEL 1 &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                                             ___         ___           ___           ___           ___        &to DEF
+           &bt BT_CLR  &bt BT_SEL 0    &bt BT_SEL 1 &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                                             ___         ___           ___           ___           ___           &to DEF
       // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                      ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼────────────┤
 	   &win_sleep        ___           ___      &kp LC(MINUS) &kp LC(EQUAL)      ___                                                  ___      &kp LA(LSHFT)  &kp LC(CAPS)  &kp LA(CAPS)      ___        &to WUWA
       // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ╭─────────────╮     ╭─────────────╮ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼────────────┤
