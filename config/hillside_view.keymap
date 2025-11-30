@@ -360,7 +360,7 @@ ZMK_BEHAVIOR(swapper, tri_state,
              &kp LALT       &kp B          &kp Z         &kp X        &kp C         &kp V                                                &kp N         &kp M        &kp COMMA     &kp DOT       &kp FSLH     &kp DOWN  
                                                                                                       ___                 ___                                                                                         
       // ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤  ╰─────────────╯     ╰─────────────╯ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┴────────────╯
-                                         &kp TILDE    &kp LSHFT     &kp SPACE     &kp LCTRL                                              &kp LEFT     &kp ENTER     &kp RIGHT        XXX
+                                         &kp GRAVE    &kp LSHFT     &kp SPACE     &kp LCTRL                                              &kp LEFT     &kp ENTER     &kp RIGHT        XXX
       //                             ╰─────────────┴─────────────┴─────────────┴─────────────╯                                      ╰─────────────┴─────────────┴─────────────┴─────────────╯
       >;
 
